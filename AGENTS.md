@@ -16,7 +16,7 @@ If detailed guidance conflicts, follow the user's current explicit direction, th
 - Inspect relevant code and conventions, identify the owning service, module, and layer, and check for existing provider capabilities before adding a Gateway feature.
 - Prefer the smallest secure implementation that satisfies the requirement. Keep provider-specific details in adapters and preserve the service and module boundaries in the architecture overview.
 - Treat items in the decision register's **Open questions and conditional choices** section as undecided. Do not turn examples, options, or proposed approaches into requirements. Make reversible local choices when needed and state the assumption; ask only when an unresolved choice materially affects security, compatibility, or architecture.
-- Add or update tests for meaningful behavior and run relevant build and test checks before reporting completion.
+- Follow the mandatory quality rules, approval requirements, implementation workflow, and enforcement checks in engineering standards throughout every code change. Add or update tests for meaningful behavior and run relevant checks before reporting completion.
 - Do not scaffold unrelated application features or introduce infrastructure, dependencies, or patterns without a concrete need and justification.
 
 ## Maintaining architectural decisions

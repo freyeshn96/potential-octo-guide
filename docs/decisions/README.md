@@ -4,6 +4,8 @@ This register separates confirmed constraints from choices that remain open. An 
 
 ## Confirmed decisions
 
+- Persistent development quality governance is accepted in [0002. Persistent development quality governance](0002-persistent-development-quality-governance.md); detailed mandatory rules and enforcement live in engineering standards.
+
 - Delivery 1 implements independent service module composition and separate PostgreSQL databases as recorded in [0001. Foundation composition and persistence](0001-foundation-composition-and-persistence.md).
 
 - The initial provider is Keycloak. The MVP supports one provider implementation.
