@@ -4,6 +4,8 @@ This register separates confirmed constraints from choices that remain open. An 
 
 ## Confirmed decisions
 
+- Delivery 1 implements independent service module composition and separate PostgreSQL databases as recorded in [0001. Foundation composition and persistence](0001-foundation-composition-and-persistence.md).
+
 - The initial provider is Keycloak. The MVP supports one provider implementation.
 - The MVP maps each stable Gateway Environment to one Keycloak realm; a Company is a business entity and is not equivalent to an Environment or realm.
 - Auth Gateway owns a provider-independent canonical resource model and business metadata. Keycloak remains operational authority for resources it manages.
@@ -21,7 +23,7 @@ These are intentionally not settled. Resolve them only when a concrete task requ
 - Whether Company should map to Keycloak Organizations, and the exact mapping rules.
 - Whether authorization decision caching is needed for the MVP, whether Redis will be adopted, and which decision classes may be cached. The security constraints in the architecture overview apply if caching is introduced.
 - Whether any service-to-service operation warrants gRPC instead of REST.
-- The final names and boundaries of individual modules beyond the confirmed `Module` suffix and service ownership boundaries.
+- The names and boundaries of future functional modules beyond the implemented Foundation composition roots, confirmed `Module` suffix, and service ownership boundaries.
 - Whether additional providers, migration support, asynchronous brokers, or an OIDC reverse proxy are needed beyond the MVP. They are not current implementation requirements.
 
 ## Recording a new decision

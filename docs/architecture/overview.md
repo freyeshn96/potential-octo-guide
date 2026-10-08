@@ -31,7 +31,7 @@ Do not add layers without clear responsibilities. Apply Hexagonal Architecture a
 
 Modules are independently composable. Internal registrations use the `Module` suffix and encapsulate their dependencies, options, handlers, validators, infrastructure, and related services. Modules must not depend on other modules' concrete implementations. Do not use dynamic assembly loading or an elaborate plugin framework without explicit need.
 
-The exact sample names such as `AddAuthGatewayServerModule` are provisional. The `Module` suffix is confirmed. Reserve `AddAuthGateway(...)` for the public .NET SDK; never use it for internal module composition.
+Foundation implements `AddAuthGatewayServerModule` and `AddAuthGatewayAdminModule` in their respective Host composition roots, with matching endpoint mapping methods. Future functional module names remain open. The `Module` suffix is confirmed. Reserve `AddAuthGateway(...)` for the public .NET SDK; never use it for internal module composition. See [Foundation composition and persistence](../decisions/0001-foundation-composition-and-persistence.md).
 
 ## Canonical model and providers
 

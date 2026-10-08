@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="../AuthGateway.Server.Application/AuthGateway.Server.Application.csproj" />
+    <ProjectReference Include="../AuthGateway.Server.Infrastructure/AuthGateway.Server.Infrastructure.csproj" />
+    <ProjectReference Include="../AuthGateway.Server.Presentation/AuthGateway.Server.Presentation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Formatting.Compact" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
