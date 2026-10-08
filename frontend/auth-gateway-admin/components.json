@@ -11,10 +11,10 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
+    "components": "@/boilerplate/components",
+    "utils": "@/boilerplate/lib/cn",
+    "ui": "@/boilerplate/components/ui",
+    "lib": "@/boilerplate/lib",
     "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"

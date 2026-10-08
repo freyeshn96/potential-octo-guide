@@ -3,11 +3,15 @@ import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'coverage'] },
+  {
+    ignores: ['dist', 'node_modules', 'coverage', 'src/routeTree.gen.ts'],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
+  ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -26,6 +30,7 @@ export default tseslint.config(
         'error',
         { ignoreVoid: false },
       ],
+      '@tanstack/query/prefer-query-options': 'error',
     },
   },
   {
@@ -41,8 +46,7 @@ export default tseslint.config(
     ...reactRefresh.configs.vite,
   },
   {
-    // Route definitions and their components intentionally share one module.
-    files: ['src/router.tsx'],
+    files: ['src/routes/**/*.{ts,tsx}'],
     rules: { 'react-refresh/only-export-components': 'off' },
   },
 )

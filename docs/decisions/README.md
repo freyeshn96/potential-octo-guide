@@ -8,6 +8,8 @@ This register separates confirmed constraints from choices that remain open. An 
 
 - Delivery 1 implements independent service module composition and separate PostgreSQL databases as recorded in [0001. Foundation composition and persistence](0001-foundation-composition-and-persistence.md).
 
+- Delivery 1.5 stage 1 structures the Admin frontend boilerplate as recorded in [0004. Admin frontend boilerplate structure](0004-admin-frontend-boilerplate-structure.md).
+
 - The initial provider is Keycloak. The MVP supports one provider implementation.
 - The MVP maps each stable Gateway Environment to one Keycloak realm; a Company is a business entity and is not equivalent to an Environment or realm.
 - Auth Gateway owns a provider-independent canonical resource model and business metadata. Keycloak remains operational authority for resources it manages.

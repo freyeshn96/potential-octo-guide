@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { App } from './App'
-import { useNavigation } from './state/navigation'
-import { config } from './config'
+import { useNavigation } from '@/boilerplate/navigation/navigation-state'
+import { foundationServiceConfig } from '@/features/foundation/foundation-config'
 
 beforeEach(() => {
   window.history.replaceState({}, '', '/')
@@ -13,7 +13,7 @@ beforeEach(() => {
     vi.fn().mockResolvedValue(
       new Response(
         JSON.stringify({
-          service: config.service,
+          service: foundationServiceConfig.expectedService,
           status: 'running',
           version: '1.0.0',
         }),
@@ -34,7 +34,9 @@ describe('Admin foundation', () => {
       await screen.findByRole('heading', { name: /A clear foundation/ }),
     ).toBeInTheDocument()
     expect(await screen.findByText('API connected')).toBeInTheDocument()
-    expect(screen.getByText(config.service)).toBeInTheDocument()
+    expect(
+      screen.getByText(foundationServiceConfig.expectedService),
+    ).toBeInTheDocument()
   })
   it('renders a loading state while the request is pending', async () => {
     vi.stubGlobal(

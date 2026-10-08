@@ -114,6 +114,7 @@ The backend Dockerfiles use separate publish stages and non-root runtime users. 
 | `Api__AllowedOrigins__0` and subsequent indices | Explicit allowed frontend HTTP(S) origins |
 | `Serilog__MinimumLevel__Default` | Structured console log threshold |
 | `VITE_API_BASE_URL` | Public frontend API origin, or `/` for same-origin Docker access |
+| `VITE_APP_BASE_PATH` | Public frontend path prefix compiled into Vite (`/`, `/admin/`, etc.); independent from `VITE_API_BASE_URL` |
 | `POSTGRES_PORT` | Published PostgreSQL development port |
 | `SERVER_PORT`, `ADMIN_PORT` | Published backend development ports |
 | `ADMIN_FRONTEND_PORT`, `CLIENT_FRONTEND_PORT` | Published frontend development ports |
@@ -121,6 +122,8 @@ The backend Dockerfiles use separate publish stages and non-root runtime users. 
 | `POSTGRES_PASSWORD` | PostgreSQL bootstrap password used only by infrastructure |
 
 Backend configuration follows standard `appsettings.json`, environment-specific settings, and environment-variable overrides. No credentials are present in committed settings. CORS allows only explicit origins (local Vite origins in Development), without credentials. If development ports change, update allowed origins as well. The Vite API URL is public and compiled into the frontend build; never put private secrets in `VITE_*` variables.
+
+Admin prefixed deployments set `VITE_APP_BASE_PATH` at build time (for example `/admin/`). TanStack Router uses the same compiled base. Reverse proxies should strip the external prefix before requests reach the frontend container while preserving SPA fallback to `index.html` for nested routes. The API base URL remains configured separately through `VITE_API_BASE_URL`.
 
 Database initialization creates separate roles and logical databases, revoking default public database access. Initialization runs only on a new PostgreSQL volume. Changing database names or passwords in `.env` does not modify an existing volume; apply deliberate database administration changes, or reset disposable development data explicitly.
 

@@ -5,7 +5,7 @@
 Use the approved stack below. Add another library, framework, infrastructure component, or architectural pattern only when a concrete need is demonstrated and the choice is justified.
 
 - **Backend:** .NET 10 LTS, ASP.NET Core, PostgreSQL, Entity Framework Core, MediatR, CQRS, Hexagonal Architecture (Ports and Adapters), FluentValidation, Serilog, xUnit, REST by default, OpenAPI, Problem Details (RFC 9457), and native .NET dependency injection. gRPC is an option when technically justified.
-- **Frontend:** React, TypeScript, Vite, Zustand, TanStack Query, TanStack Router, Tailwind CSS, shadcn/ui, Vitest, and React Testing Library.
+- **Frontend:** React, TypeScript, Vite, Axios, Zustand, TanStack Query, TanStack Router, Tailwind CSS, shadcn/ui, Vitest, and React Testing Library.
 - **Infrastructure:** Docker, Docker Compose, PostgreSQL, and Keycloak. Redis is available for authorization decision caching if adopted. Use Testcontainers for integration testing where appropriate.
 - **Excluded:** OpenTelemetry.
 

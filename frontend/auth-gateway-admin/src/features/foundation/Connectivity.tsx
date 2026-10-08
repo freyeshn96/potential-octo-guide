@@ -5,9 +5,9 @@ import {
   RefreshCw,
   ArrowUpRight,
 } from 'lucide-react'
-import { useSystemInformation } from '@/api/queries'
-import { config } from '@/config'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/boilerplate/components/ui/button'
+import { foundationServiceConfig } from '@/features/foundation/foundation-config'
+import { useSystemInformation } from '@/features/foundation/system-queries'
 
 export function Connectivity() {
   const query = useSystemInformation()
@@ -54,7 +54,7 @@ export function Connectivity() {
       <dl className="connection-details">
         <div>
           <dt>Service</dt>
-          <dd>{config.service}</dd>
+          <dd>{foundationServiceConfig.expectedService}</dd>
         </div>
         <div>
           <dt>Version</dt>
@@ -67,7 +67,9 @@ export function Connectivity() {
       </dl>
       <Button
         variant="outline"
-        onClick={() => void query.refetch()}
+        onClick={() => {
+          void query.refetch().catch(() => undefined)
+        }}
         disabled={query.isFetching}
       >
         <RefreshCw size={15} aria-hidden /> Check connection
