@@ -8,9 +8,9 @@ public sealed class DatabaseHealthCheck(IServiceScopeFactory scopeFactory) : IHe
     public async Task<HealthCheckResult> CheckHealthAsync(
         HealthCheckContext context, CancellationToken cancellationToken = default)
     {
-        await using var scope = scopeFactory.CreateAsyncScope();
-        var database = scope.ServiceProvider.GetRequiredService<AdminDbContext>();
-        var connected = await database.Database.CanConnectAsync(cancellationToken);
+        await using AsyncServiceScope scope = scopeFactory.CreateAsyncScope();
+        AdminDbContext database = scope.ServiceProvider.GetRequiredService<AdminDbContext>();
+        bool connected = await database.Database.CanConnectAsync(cancellationToken);
         return connected
             ? HealthCheckResult.Healthy()
             : HealthCheckResult.Unhealthy("Database unavailable.");

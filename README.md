@@ -6,23 +6,29 @@ Read [AGENTS.md](AGENTS.md) before changing the repository. Detailed rules live 
 
 ## Prerequisites
 
-- .NET 10 SDK compatible with `global.json` (10.0.302 or a newer stable .NET 10 feature band).
+- .NET 10 SDK compatible with `src/global.json` (10.0.302 or a newer stable .NET 10 feature band).
 - Node.js 24 and npm 11. Each frontend has an independent package manifest and lockfile.
 - Docker Engine with Linux containers and Docker Compose v2. Docker must be running for database verification and Testcontainers.
-- PowerShell 7 for the optional development setup scripts. On other platforms, copy `.env.example` to `.env` and fill the three password values with separate local secrets.
+- PowerShell 7 for the optional development setup scripts. On other platforms, copy `infrastructure/docker/.env.example` to `infrastructure/docker/.env` and fill the three password values with separate local secrets.
 
 No Keycloak, Redis, telemetry collector, or message broker is required.
 
 ## Architecture and structure
 
 ```text
+src/AuthGateway.slnx                           # .NET solution
+src/global.json                                # Pinned .NET SDK
+src/.config/dotnet-tools.json                  # Local dotnet-ef tool manifest
+src/Directory.Build.props                      # Shared backend build settings
+src/Directory.Packages.props                   # Central package versions
+src/NuGet.Config                               # NuGet source policy
 src/BuildingBlocks/AuthGateway.Contracts       # Technical wire contract only
 src/Server/AuthGateway.Server.{Domain,Application,Infrastructure,Presentation,Host}
 src/Admin/AuthGateway.Admin.{Domain,Application,Infrastructure,Presentation,Host}
+src/tests/AuthGateway.{Server,Admin}.{UnitTests,IntegrationTests}
 frontend/auth-gateway-admin                    # Admin frontend
 frontend/auth-gateway-client                   # Client frontend connected to Server
-tests/AuthGateway.{Server,Admin}.{UnitTests,IntegrationTests}
-infrastructure/docker                         # Backend/frontend images and PostgreSQL initialization
+infrastructure/docker                         # Images, PostgreSQL init, local Compose .env
 scripts                                       # Local environment initialization
 docs                                          # Architecture, decisions, standards, verification
 ```
@@ -45,13 +51,17 @@ From the repository root:
 
 ```powershell
 ./scripts/Initialize-Development.ps1
-docker compose config --quiet
-docker compose up -d --wait postgres
+docker compose --env-file infrastructure/docker/.env config --quiet
+docker compose --env-file infrastructure/docker/.env up -d --wait postgres
+Push-Location src
 dotnet restore AuthGateway.slnx --configfile NuGet.Config
 dotnet build AuthGateway.slnx --no-restore
+Pop-Location
 ```
 
-The initializer creates an ignored `.env` with independently generated database passwords. It keeps any existing file. Never commit local credentials. Do not use these development credentials for production.
+Run backend `dotnet` commands from `src/` so `global.json` and the local tool manifest apply. The initializer creates an ignored `infrastructure/docker/.env` with independently generated database passwords. It keeps any existing file. Never commit local credentials. Do not use these development credentials for production.
+
+Pass `--env-file infrastructure/docker/.env` to every `docker compose` command from the repository root so Compose can resolve the development variables.
 
 In a Server terminal:
 
@@ -92,12 +102,12 @@ For Bash or another shell, export `Database__ConnectionString`, `ASPNETCORE_ENVI
 ## Full Docker workflow and selective startup
 
 ```powershell
-docker compose up -d --build --wait             # Complete Foundation
-docker compose up -d --build --wait server      # PostgreSQL + Server
-docker compose up -d --build --wait admin       # PostgreSQL + Admin
-docker compose up -d --wait postgres            # Database infrastructure only
-docker compose ps
-docker compose down                            # Retains the database volume
+docker compose --env-file infrastructure/docker/.env up -d --build --wait             # Complete Foundation
+docker compose --env-file infrastructure/docker/.env up -d --build --wait server      # PostgreSQL + Server
+docker compose --env-file infrastructure/docker/.env up -d --build --wait admin       # PostgreSQL + Admin
+docker compose --env-file infrastructure/docker/.env up -d --wait postgres            # Database infrastructure only
+docker compose --env-file infrastructure/docker/.env ps
+docker compose --env-file infrastructure/docker/.env down                            # Retains the database volume
 ```
 
 Service selection includes only declared dependencies; Server does not depend on Admin. Complete Compose exposes the Admin frontend at http://localhost:8081 and the Client frontend at http://localhost:8082 by default. The production frontend assets are served by Nginx with SPA route fallback. Its `/api` proxy forwards to the appropriate backend on the Compose network; no browser credentials or private configuration are embedded in Vite.
@@ -125,7 +135,7 @@ Backend configuration follows standard `appsettings.json`, environment-specific 
 
 Admin prefixed deployments set `VITE_APP_BASE_PATH` at build time (for example `/admin/`). TanStack Router uses the same compiled base. Reverse proxies should strip the external prefix before requests reach the frontend container while preserving SPA fallback to `index.html` for nested routes. The API base URL remains configured separately through `VITE_API_BASE_URL`.
 
-Database initialization creates separate roles and logical databases, revoking default public database access. Initialization runs only on a new PostgreSQL volume. Changing database names or passwords in `.env` does not modify an existing volume; apply deliberate database administration changes, or reset disposable development data explicitly.
+Database initialization creates separate roles and logical databases, revoking default public database access. Initialization runs only on a new PostgreSQL volume. Changing database names or passwords in `infrastructure/docker/.env` does not modify an existing volume; apply deliberate database administration changes, or reset disposable development data explicitly.
 
 ## Technical API surface
 
@@ -147,10 +157,12 @@ Server owns `ServerDbContext` and `auth_gateway_server`; Admin owns `AdminDbCont
 Migration tooling is repository-local and versioned. Once a later delivery adds an actual model, run migrations explicitly using the matching service configuration:
 
 ```powershell
-dotnet tool restore
 . ./scripts/Set-DevelopmentEnvironment.ps1 -Service Server
-dotnet ef migrations add <MeaningfulMigrationName> --project src/Server/AuthGateway.Server.Infrastructure --startup-project src/Server/AuthGateway.Server.Host
-dotnet ef database update --project src/Server/AuthGateway.Server.Infrastructure --startup-project src/Server/AuthGateway.Server.Host
+Push-Location src
+dotnet tool restore
+dotnet ef migrations add <MeaningfulMigrationName> --project Server/AuthGateway.Server.Infrastructure --startup-project Server/AuthGateway.Server.Host
+dotnet ef database update --project Server/AuthGateway.Server.Infrastructure --startup-project Server/AuthGateway.Server.Host
+Pop-Location
 ```
 
 Replace Server with Admin for its independently owned model. For production, generate and review an idempotent SQL script or migration bundle and apply it as a controlled deployment step. Hosts never call `EnsureCreated` or automatically apply production migrations at startup.
@@ -160,15 +172,19 @@ Replace Server with Admin for its independently owned model. For production, gen
 Backend:
 
 ```powershell
+Push-Location src
 dotnet restore AuthGateway.slnx --configfile NuGet.Config
 dotnet build AuthGateway.slnx --no-restore
 dotnet test AuthGateway.slnx --no-build
+Pop-Location
 ```
 
 Full tests require Docker. Testcontainers starts disposable PostgreSQL instances; tests do not depend on the local Compose database. To execute only configuration/composition tests and database-independent HTTP integration checks when Docker is unavailable:
 
 ```powershell
+Push-Location src
 dotnet test AuthGateway.slnx --no-build --filter "Category!=PostgreSQL"
+Pop-Location
 ```
 
 This filter explicitly excludes real PostgreSQL tests; it is not full infrastructure verification.

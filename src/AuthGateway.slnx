@@ -1,0 +1,17 @@
+<Solution>
+  <Project Path="BuildingBlocks/AuthGateway.Contracts/AuthGateway.Contracts.csproj" />
+  <Project Path="Server/AuthGateway.Server.Domain/AuthGateway.Server.Domain.csproj" />
+  <Project Path="Server/AuthGateway.Server.Application/AuthGateway.Server.Application.csproj" />
+  <Project Path="Server/AuthGateway.Server.Infrastructure/AuthGateway.Server.Infrastructure.csproj" />
+  <Project Path="Server/AuthGateway.Server.Presentation/AuthGateway.Server.Presentation.csproj" />
+  <Project Path="Server/AuthGateway.Server.Host/AuthGateway.Server.Host.csproj" />
+  <Project Path="Admin/AuthGateway.Admin.Domain/AuthGateway.Admin.Domain.csproj" />
+  <Project Path="Admin/AuthGateway.Admin.Application/AuthGateway.Admin.Application.csproj" />
+  <Project Path="Admin/AuthGateway.Admin.Infrastructure/AuthGateway.Admin.Infrastructure.csproj" />
+  <Project Path="Admin/AuthGateway.Admin.Presentation/AuthGateway.Admin.Presentation.csproj" />
+  <Project Path="Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj" />
+  <Project Path="tests/AuthGateway.Server.UnitTests/AuthGateway.Server.UnitTests.csproj" />
+  <Project Path="tests/AuthGateway.Server.IntegrationTests/AuthGateway.Server.IntegrationTests.csproj" />
+  <Project Path="tests/AuthGateway.Admin.UnitTests/AuthGateway.Admin.UnitTests.csproj" />
+  <Project Path="tests/AuthGateway.Admin.IntegrationTests/AuthGateway.Admin.IntegrationTests.csproj" />
+</Solution>

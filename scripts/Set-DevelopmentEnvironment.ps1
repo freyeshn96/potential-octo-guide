@@ -2,7 +2,7 @@
 param([Parameter(Mandatory)][ValidateSet('Server', 'Admin')][string]$Service)
 $ErrorActionPreference = 'Stop'
 $repositoryPath = Split-Path $PSScriptRoot -Parent
-$environmentPath = Join-Path $repositoryPath '.env'
+$environmentPath = Join-Path $repositoryPath 'infrastructure/docker/.env'
 if (-not (Test-Path -LiteralPath $environmentPath)) {
     throw 'Run scripts/Initialize-Development.ps1 first.'
 }

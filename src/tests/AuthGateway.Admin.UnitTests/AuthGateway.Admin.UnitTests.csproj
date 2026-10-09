@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../src/Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj" />
+    <ProjectReference Include="../../Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />

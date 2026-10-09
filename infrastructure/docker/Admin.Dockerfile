@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /source
-COPY global.json NuGet.Config Directory.Build.props Directory.Packages.props ./
+COPY src/global.json ./global.json
 COPY src/ src/
-RUN dotnet restore src/Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj --configfile NuGet.Config
+RUN dotnet restore src/Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj --configfile src/NuGet.Config
 RUN dotnet publish src/Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj -c Release --no-restore -o /app/publish /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime

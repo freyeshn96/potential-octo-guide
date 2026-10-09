@@ -11,7 +11,7 @@ public sealed class DatabaseOptions
     {
         try
         {
-            var builder = new NpgsqlConnectionStringBuilder(ConnectionString);
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(ConnectionString);
             return !string.IsNullOrWhiteSpace(builder.Host)
                 && !string.IsNullOrWhiteSpace(builder.Database)
                 && !string.IsNullOrWhiteSpace(builder.Username)
