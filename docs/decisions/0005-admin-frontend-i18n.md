@@ -10,7 +10,8 @@ The Admin application needs user-facing copy in Spanish while keeping code ident
 ## Decision
 
 - Use **i18next** and **react-i18next** in `auth-gateway-admin`.
-- Ship a single locale (`es`) with `lng` and `fallbackLng` set to `es`. No language switcher in the UI for this delivery.
+- Locale policy is declared in `app.config.ts` as `i18n.defaultLocale` and `i18n.supportedLocales` (code plus end-user label). The initial delivery ships only `es`. No language switcher in the UI yet.
+- `createI18n` reads that config for `lng`, `fallbackLng`, and `supportedLngs`, and validates that each supported locale has registered resource bundles.
 - Reusable strings live under `frontend/auth-gateway-admin/src/boilerplate/locales/es/` (namespace `shell`). Application strings live under `src/locales/es/` (namespaces such as `navigation`, `pages`, `connectivity`, `meta`).
 - Navigation registry entries use `labelKey` values resolved at render time. Sidebar search filters against translated labels via an injected `resolveLabel` function in pure navigation helpers.
 - URL paths remain English (`/`, `/overview`). Product and demo configuration names in `app.config.ts` stay as non-translated data.

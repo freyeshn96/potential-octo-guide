@@ -15,10 +15,25 @@ export interface AppShellUser {
   initials: string
 }
 
+/** BCP 47 locale code (for example `es`). */
+export type AppLocaleCode = string
+
+export interface AppLocaleDefinition {
+  code: AppLocaleCode
+  /** End-user label for a future language switcher. */
+  label: string
+}
+
+export interface AppI18nConfig {
+  defaultLocale: AppLocaleCode
+  supportedLocales: readonly AppLocaleDefinition[]
+}
+
 export interface AppConfig {
   identity: AppShellIdentity
   workspace: AppShellWorkspace
   user: AppShellUser
+  i18n: AppI18nConfig
 }
 
 export interface AppNavigationItem {

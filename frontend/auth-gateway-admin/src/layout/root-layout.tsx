@@ -9,7 +9,7 @@ function useDocumentMeta() {
   const { t } = useTranslation('meta')
   useEffect(() => {
     document.title = t('title')
-    document.documentElement.lang = 'es'
+    document.documentElement.lang = appConfig.i18n.defaultLocale
     const description = document.querySelector('meta[name="description"]')
     if (description !== null) {
       description.setAttribute('content', t('description'))

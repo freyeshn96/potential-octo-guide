@@ -20,6 +20,10 @@ const testConfig: AppConfig = {
     name: 'Sample User',
     initials: 'S',
   },
+  i18n: {
+    defaultLocale: 'es',
+    supportedLocales: [{ code: 'es', label: 'Español' }],
+  },
 }
 
 const testNavigation = [

@@ -13,4 +13,13 @@ export const appConfig: AppConfig = {
     name: 'A. Parent',
     initials: 'A',
   },
+  i18n: {
+    defaultLocale: 'es',
+    supportedLocales: [
+      {
+        code: 'es',
+        label: 'Español',
+      },
+    ],
+  },
 }
