@@ -9,6 +9,7 @@
 !.env.example
 .local/
 .vs/
+**/.idea/
 *.user
 *.suo
 TestResults/
