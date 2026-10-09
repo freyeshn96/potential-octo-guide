@@ -15,7 +15,7 @@
     "utils": "@/boilerplate/lib/cn",
     "ui": "@/boilerplate/components/ui",
     "lib": "@/boilerplate/lib",
-    "hooks": "@/boilerplate/hooks"
+    "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"
 }
