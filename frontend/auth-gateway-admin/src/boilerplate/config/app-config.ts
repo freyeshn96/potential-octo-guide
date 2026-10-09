@@ -37,12 +37,13 @@ export interface AppConfig {
 }
 
 export interface AppNavigationItem {
-  to: string
+  to?: string
   label: string
   icon: LucideIcon
   order: number
   visible: boolean
   exact?: boolean
+  children?: readonly AppNavigationItem[]
 }
 
 export interface AppNavigationGroup {

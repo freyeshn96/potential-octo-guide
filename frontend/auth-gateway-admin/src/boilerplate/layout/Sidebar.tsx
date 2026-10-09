@@ -1,6 +1,12 @@
-import { useState } from 'react'
-import { Link } from '@tanstack/react-router'
-import { ChevronsLeft, ChevronsRight, Hexagon, Search } from 'lucide-react'
+import { useId, useState } from 'react'
+import { Link, useRouterState } from '@tanstack/react-router'
+import {
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  Hexagon,
+  Search,
+} from 'lucide-react'
 import type {
   AppConfig,
   AppNavigationGroup,
@@ -8,7 +14,10 @@ import type {
 } from '@/boilerplate/config/app-config'
 import { Button } from '@/boilerplate/components/ui/button'
 import { cn } from '@/boilerplate/lib/cn'
-import { filterNavigationGroups } from '@/boilerplate/navigation/navigation'
+import {
+  filterNavigationGroups,
+  itemOrChildIsActive,
+} from '@/boilerplate/navigation/navigation'
 import { useNavigation } from '@/boilerplate/navigation/navigation-state'
 
 export interface SidebarProps {
@@ -18,32 +27,162 @@ export interface SidebarProps {
 
 function SidebarNavLink({
   item,
+  nested = false,
   onNavigate,
 }: {
   item: AppNavigationItem
+  nested?: boolean
   onNavigate: () => void
 }) {
+  const to = item.to
+  if (to === undefined) {
+    return null
+  }
+
   const Icon = item.icon
+
   return (
     <Link
-      to={item.to}
+      to={to}
+      className={cn(nested && 'nav-sub-link')}
       aria-label={item.label}
       title={item.label}
       activeOptions={item.exact ? { exact: true } : undefined}
       activeProps={{ className: 'active' }}
       onClick={onNavigate}
     >
-      <Icon size={16} aria-hidden />
+      {nested ? null : <Icon size={16} aria-hidden />}
       <span className="nav-item-label">{item.label}</span>
     </Link>
   )
+}
+
+function SidebarNavBranch({
+  item,
+  sidebarCollapsed,
+  flyoutLabel,
+  setFlyoutLabel,
+  onNavigate,
+}: {
+  item: AppNavigationItem
+  sidebarCollapsed: boolean
+  flyoutLabel: string | null
+  setFlyoutLabel: (label: string | null) => void
+  onNavigate: () => void
+}) {
+  const panelId = useId()
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  })
+  const Icon = item.icon
+  const children = item.children ?? []
+  const childActive = itemOrChildIsActive(item, pathname)
+  const [open, setOpen] = useState(false)
+  const panelOpen = childActive || open
+  const flyoutOpen = flyoutLabel === item.label
+
+  const toggleBranch = () => {
+    if (sidebarCollapsed) {
+      setFlyoutLabel(flyoutOpen ? null : item.label)
+      return
+    }
+    setOpen(!panelOpen)
+  }
+
+  return (
+    <div
+      className={cn(
+        'nav-branch',
+        panelOpen && 'is-open',
+        childActive && 'is-active',
+      )}
+    >
+      <button
+        type="button"
+        className={cn('nav-branch-trigger', childActive && 'is-active')}
+        aria-expanded={sidebarCollapsed ? flyoutOpen : panelOpen}
+        aria-controls={panelId}
+        onClick={toggleBranch}
+      >
+        <Icon size={16} aria-hidden />
+        <span className="nav-item-label">{item.label}</span>
+        <ChevronRight size={16} aria-hidden className="nav-branch-chevron" />
+      </button>
+      {sidebarCollapsed ? (
+        flyoutOpen ? (
+          <div className="nav-flyout" role="menu" aria-label={item.label}>
+            {children.map((child) => (
+              <SidebarNavLink
+                key={child.label}
+                item={child}
+                onNavigate={() => {
+                  setFlyoutLabel(null)
+                  onNavigate()
+                }}
+              />
+            ))}
+          </div>
+        ) : null
+      ) : (
+        <div
+          id={panelId}
+          className="nav-sub-panel"
+          data-open={panelOpen ? 'true' : 'false'}
+        >
+          <div className="nav-sub-inner">
+            {children.map((child) => (
+              <SidebarNavLink
+                key={child.label}
+                item={child}
+                nested
+                onNavigate={onNavigate}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function SidebarNavItem({
+  item,
+  sidebarCollapsed,
+  flyoutLabel,
+  setFlyoutLabel,
+  onNavigate,
+}: {
+  item: AppNavigationItem
+  sidebarCollapsed: boolean
+  flyoutLabel: string | null
+  setFlyoutLabel: (label: string | null) => void
+  onNavigate: () => void
+}) {
+  if (item.children !== undefined && item.children.length > 0) {
+    return (
+      <SidebarNavBranch
+        item={item}
+        sidebarCollapsed={sidebarCollapsed}
+        flyoutLabel={flyoutLabel}
+        setFlyoutLabel={setFlyoutLabel}
+        onNavigate={onNavigate}
+      />
+    )
+  }
+  return <SidebarNavLink item={item} onNavigate={onNavigate} />
 }
 
 export function Sidebar({ config, navigation }: SidebarProps) {
   const { menuOpen, sidebarCollapsed, closeMenu, toggleSidebar } =
     useNavigation()
   const [query, setQuery] = useState('')
+  const [flyoutLabel, setFlyoutLabel] = useState<string | null>(null)
   const visibleGroups = filterNavigationGroups(navigation, query)
+
+  const handleToggleSidebar = () => {
+    setFlyoutLabel(null)
+    toggleSidebar()
+  }
 
   return (
     <aside
@@ -69,7 +208,7 @@ export function Sidebar({ config, navigation }: SidebarProps) {
             sidebarCollapsed ? 'Expand navigation' : 'Collapse navigation'
           }
           aria-expanded={!sidebarCollapsed}
-          onClick={toggleSidebar}
+          onClick={handleToggleSidebar}
         >
           {sidebarCollapsed ? (
             <ChevronsRight size={16} aria-hidden />
@@ -95,9 +234,12 @@ export function Sidebar({ config, navigation }: SidebarProps) {
           <section key={group.id} className="nav-group">
             <h2 className="nav-group-label">{group.label}</h2>
             {group.items.map((item) => (
-              <SidebarNavLink
-                key={item.to}
+              <SidebarNavItem
+                key={item.label}
                 item={item}
+                sidebarCollapsed={sidebarCollapsed}
+                flyoutLabel={flyoutLabel}
+                setFlyoutLabel={setFlyoutLabel}
                 onNavigate={closeMenu}
               />
             ))}

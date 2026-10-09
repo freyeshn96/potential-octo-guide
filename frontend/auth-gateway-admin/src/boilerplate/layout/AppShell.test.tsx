@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithRouter } from '@/test/render-with-router'
-import { Home, Layers3 } from 'lucide-react'
+import { Fingerprint, Home, Layers3 } from 'lucide-react'
 import { AppShell } from '@/boilerplate/layout/AppShell'
 import type { AppConfig } from '@/boilerplate/config/app-config'
 import { useNavigation } from '@/boilerplate/navigation/navigation-state'
@@ -52,6 +52,21 @@ const testNavigation = [
         order: 1,
         visible: true,
       },
+      {
+        label: 'Identity',
+        icon: Fingerprint,
+        order: 2,
+        visible: true,
+        children: [
+          {
+            to: '/providers',
+            label: 'Catalog',
+            icon: Fingerprint,
+            order: 0,
+            visible: true,
+          },
+        ],
+      },
     ],
   },
 ]
@@ -96,5 +111,23 @@ describe('AppShell', () => {
       screen.getByRole('link', { name: 'Diagnostics' }),
     ).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Home' })).not.toBeInTheDocument()
+  })
+
+  it('expands nested navigation to reveal child destinations', async () => {
+    await renderWithRouter(
+      <AppShell config={testConfig} navigation={testNavigation}>
+        <p>Child content</p>
+      </AppShell>,
+    )
+    const branch = screen.getByRole('button', { name: 'Identity' })
+    expect(branch).toHaveAttribute('aria-expanded', 'false')
+    const panel = document.getElementById(
+      branch.getAttribute('aria-controls') ?? '',
+    )
+    expect(panel).toHaveAttribute('data-open', 'false')
+    await userEvent.click(branch)
+    expect(branch).toHaveAttribute('aria-expanded', 'true')
+    expect(panel).toHaveAttribute('data-open', 'true')
+    expect(screen.getByRole('link', { name: 'Catalog' })).toBeInTheDocument()
   })
 })
