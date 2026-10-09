@@ -6,6 +6,8 @@ This register separates confirmed constraints from choices that remain open. An 
 
 - Persistent development quality governance is accepted in [0002. Persistent development quality governance](0002-persistent-development-quality-governance.md); detailed mandatory rules and enforcement live in engineering standards.
 
+- Frontend TanStack Query and Router cache governance is accepted in [0003. Frontend server-state governance](0003-frontend-server-state-governance.md); detailed rules live in [frontend server state](../engineering/frontend-server-state.md).
+
 - Delivery 1 implements independent service module composition and separate PostgreSQL databases as recorded in [0001. Foundation composition and persistence](0001-foundation-composition-and-persistence.md).
 
 - Delivery 1.5 stage 1 structures the Admin frontend boilerplate as recorded in [0004. Admin frontend boilerplate structure](0004-admin-frontend-boilerplate-structure.md).

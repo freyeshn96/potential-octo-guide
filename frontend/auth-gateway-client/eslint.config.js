@@ -3,11 +3,13 @@ import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 export default tseslint.config(
   { ignores: ['dist', 'node_modules', 'coverage'] },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
+  ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {

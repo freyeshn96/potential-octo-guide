@@ -72,7 +72,7 @@ Target cognitive complexity at most 15 per method unless an approved analyzer co
 
 .NET: prefer asynchronous I/O; avoid `.Result`, `.Wait()`, unnecessary `Task.Run`, unmanaged fire-and-forget tasks, and `async void` except required event handlers. Propagate `CancellationToken` where appropriate and dispose resources correctly.
 
-React/TypeScript: handle rejected promises and avoid floating promises. Follow Hooks rules and correct dependencies; clean up subscriptions and side effects. Avoid unnecessary effects and duplicated server state. Use TanStack Query for remote state.
+React/TypeScript: handle rejected promises and avoid floating promises. Follow Hooks rules and correct dependencies; clean up subscriptions and side effects. Avoid unnecessary effects and duplicated server state. Use TanStack Query for remote state and follow [frontend server state](frontend-server-state.md) for caching, invalidation, Router integration, and testing.
 
 Never hardcode or log credentials, secrets, or tokens. Validate untrusted external data, avoid unsafe SQL construction, preserve backend authorization enforcement, and never disable TLS validation. Keep internal exception details out of public responses. Do not ignore security analyzer warnings. Protect concurrent operations from races and use secure defaults.
 
@@ -84,7 +84,7 @@ The root `AGENTS.md` automatically directs agents to this canonical document. No
 | --- | --- | --- |
 | `.editorconfig` and .NET build | Explicit local typing style (IDE0007/IDE0008), unused usings (IDE0005 where supported), unnecessary assignments (IDE0059), native analyzer/compiler diagnostics | `dynamic`, unnecessary `object`, unsafe casts/reflection, parameter count and cohesion, dead code not diagnosed by tooling |
 | `Directory.Build.props` | Nullable references, warnings as errors, native analyzers and style enforcement during build | Security, asynchronous design, resource ownership, architectural boundaries |
-| Both frontend ESLint configurations | No `var`/explicit `any`, unused declarations, unsafe operations involving `any`, floating/misused promises, unnecessary assertions, non-null assertions, Hooks rules | Public contract completeness, validated external data, meaningful reuse, server-state ownership |
+| Both frontend ESLint configurations | No `var`/explicit `any`, unused declarations, unsafe operations involving `any`, floating/misused promises, unnecessary assertions, non-null assertions, Hooks rules, `@tanstack/eslint-plugin-query` `flat/recommended` | Public contract completeness, validated external data, meaningful reuse, server-state ownership, mutation impact, freshness policy, invalidation semantics |
 | Both TypeScript configurations | Strict checking (including implicit `any`), unused locals/parameters, indexed access safety | Assertions that escape types, nullability intent, business correctness |
 | Agent review | Three-parameter default, approval records, cognitive complexity target, duplication, coupling, all remaining mandatory standards | Owner approval for significant shared abstractions and justified parameter exceptions |
 
