@@ -1,3 +1,4 @@
+using AuthGateway.Provider.Keycloak;
 using AuthGateway.Server.Application;
 using AuthGateway.Server.Infrastructure;
 using AuthGateway.Server.Presentation;
@@ -12,6 +13,7 @@ public static class ServerModule
         services.AddServerApplication();
         services.AddServerInfrastructure(configuration);
         services.AddServerPresentation();
+        services.AddKeycloakProvider(configuration);
         return services;
     }
 

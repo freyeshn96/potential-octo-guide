@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using AuthGateway.Server.Application.Providers;
 using AuthGateway.Server.Host;
 using Serilog;
 using Serilog.Context;
@@ -35,6 +36,19 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 builder.Services.AddAuthGatewayServerModule(builder.Configuration);
 
 WebApplication app = builder.Build();
+if (args.Contains("--provider-diagnostics", StringComparer.Ordinal))
+{
+    if (!app.Environment.IsDevelopment())
+        throw new InvalidOperationException("Provider console diagnostics are restricted to Development.");
+    using CancellationTokenSource cancellation = new(TimeSpan.FromMinutes(1));
+    ProviderDiagnosticReport report = await app.Services.GetRequiredService<IProviderDiagnostics>()
+        .DiagnoseAsync(cancellation.Token);
+    foreach (ProviderDiagnosticCheck check in report.Checks)
+        Console.WriteLine($"{check.Stage}: {check.Error?.ToString() ?? "Succeeded"}");
+    Environment.ExitCode = report.Succeeded ? 0 : 1;
+    await app.DisposeAsync();
+    return;
+}
 app.Use(async (context, next) =>
 {
     using (LogContext.PushProperty("TraceId", Activity.Current?.Id ?? context.TraceIdentifier))

@@ -19,4 +19,15 @@ foreach ($suffix in @('DATABASE', 'DATABASE_USER', 'DATABASE_PASSWORD', 'PORT'))
 $env:Database__ConnectionString = "Host=localhost;Port=$($settings['POSTGRES_PORT']);Database=$($settings["${prefix}_DATABASE"]);Username=$($settings["${prefix}_DATABASE_USER"]);Password=$($settings["${prefix}_DATABASE_PASSWORD"]);Timeout=5;Command Timeout=5"
 $env:ASPNETCORE_ENVIRONMENT = 'Development'
 $env:ASPNETCORE_URLS = "http://localhost:$($settings["${prefix}_PORT"])"
+if ($Service -eq 'Server') {
+    $providerUrl = $settings['KEYCLOAK_PUBLIC_URL']
+    if ([string]::IsNullOrWhiteSpace($providerUrl)) { $providerUrl = 'http://localhost:8180' }
+    $env:Keycloak__BaseUrl = $providerUrl
+    $env:Keycloak__PublicIssuerUrl = "$providerUrl/realms/gateway-development"
+    $env:Keycloak__AdministrativeApiUrl = "$providerUrl/admin"
+    $env:Keycloak__AuthenticationRealm = 'gateway-development'
+    $env:Keycloak__ClientId = 'gateway-reader'
+    $env:Keycloak__ClientSecret = $settings['KEYCLOAK_CLIENT_SECRET']
+    $env:Keycloak__AllowInsecureHttp = 'true'
+}
 Write-Output "Configured the current session for AuthGateway.$Service."

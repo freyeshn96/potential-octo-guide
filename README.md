@@ -1,6 +1,6 @@
 # Auth Gateway — Foundation
 
-Auth Gateway's first delivery establishes two independent .NET services and two independent React applications. It contains technical diagnostics, persistence configuration, error handling, logging, tests, and Docker development infrastructure. Business functionality and authentication are deliberately deferred to Keycloak Connectivity and later deliveries.
+Auth Gateway's foundation establishes two independent .NET services and two independent React applications. Delivery 2 adds an isolated Keycloak provider with validated OIDC inspection, technical authentication and read-only identity-space discovery. Administrative HTTP authentication and business management remain deferred.
 
 Read [AGENTS.md](AGENTS.md) before changing the repository. Detailed rules live in [architecture](docs/architecture/overview.md), [engineering standards](docs/engineering/standards.md), and the [decision register](docs/decisions/README.md).
 
@@ -206,6 +206,11 @@ See [Foundation verification](docs/engineering/foundation-verification.md) for t
 
 ## Current scope and next delivery
 
-Foundation contains no business entities, authentication flows, authorization policies, provider adapters, synchronization, SDK implementation, or business screens. Domain projects intentionally contain no artificial code. The Client frontend has only a technical shell and does not prescribe future product workflows. shadcn/ui's Button and styling tokens provide the initial local component foundation; there is no shared frontend package.
+There are no business entities, interactive authentication flows, administrative authorization policies, synchronization, SDK implementation, or business screens. The Keycloak adapter implements only diagnostics, OIDC inspection, service-account authentication and read-only identity-space discovery. Domain projects intentionally contain no artificial code. The Client frontend has only a technical shell and does not prescribe future product workflows. shadcn/ui's Button and styling tokens provide the initial local component foundation; there is no shared frontend package.
 
-The next delivery is **Keycloak Connectivity**, within each service's established ownership boundaries. Redis, company-to-organization mapping, and additional providers remain subject to the decision register.
+The next delivery is **Environment Management**, within each service's established ownership boundaries. Redis, company-to-organization mapping, and additional providers remain subject to the decision register.
+
+## Keycloak delivery
+
+See [Delivery 2 provider integration](docs/engineering/keycloak-integration.md) for configuration,
+least-privilege local setup, controlled console diagnostics and provider test commands.

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="../../Server/AuthGateway.Server.Application/AuthGateway.Server.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="AuthGateway.Provider.Keycloak.UnitTests" />
+  </ItemGroup>
+</Project>

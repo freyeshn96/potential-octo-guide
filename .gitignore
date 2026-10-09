@@ -13,3 +13,4 @@
 *.user
 *.suo
 TestResults/
+infrastructure/docker/.keycloak-realm.json

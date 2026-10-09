@@ -1,4 +1,7 @@
 <Solution>
+  <Project Path="Providers/AuthGateway.Provider.Keycloak/AuthGateway.Provider.Keycloak.csproj" />
+  <Project Path="tests/AuthGateway.Provider.Keycloak.UnitTests/AuthGateway.Provider.Keycloak.UnitTests.csproj" />
+  <Project Path="tests/AuthGateway.Provider.Keycloak.IntegrationTests/AuthGateway.Provider.Keycloak.IntegrationTests.csproj" />
   <Project Path="BuildingBlocks/AuthGateway.Contracts/AuthGateway.Contracts.csproj" />
   <Project Path="Server/AuthGateway.Server.Domain/AuthGateway.Server.Domain.csproj" />
   <Project Path="Server/AuthGateway.Server.Application/AuthGateway.Server.Application.csproj" />
