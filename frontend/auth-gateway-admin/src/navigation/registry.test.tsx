@@ -12,15 +12,8 @@ describe('mainNavigation registry', () => {
         <div>Page</div>
       </AppShell>,
     )
+    expect(screen.getByRole('link', { name: 'Inicio' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Overview' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Users' })).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'Providers' }),
-    ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Runtime' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Settings' })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: 'Identity' }),
-    ).toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'Users' })).not.toBeInTheDocument()
   })
 })

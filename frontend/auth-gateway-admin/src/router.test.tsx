@@ -26,10 +26,10 @@ afterEach(() => {
 })
 
 describe('createAppRouter', () => {
-  it('supports direct navigation to nested routes', async () => {
+  it('supports direct navigation to the overview route', async () => {
     const router = createAppRouter()
     const history = createMemoryHistory({
-      initialEntries: ['/runtime'],
+      initialEntries: ['/overview'],
     })
     router.update({ history })
     render(
@@ -38,7 +38,7 @@ describe('createAppRouter', () => {
       </QueryClientProvider>,
     )
     expect(
-      await screen.findByRole('heading', { name: 'Runtime' }),
+      await screen.findByRole('heading', { name: /A clear foundation/ }),
     ).toBeInTheDocument()
   })
 

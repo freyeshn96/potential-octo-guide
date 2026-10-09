@@ -33,9 +33,9 @@ export function OverviewPage() {
             <span>React + TypeScript</span>
             <span>.NET 10</span>
           </div>
-          <Button asChild>
-            <Link to="/runtime">
-              Explore runtime <ArrowRight size={16} aria-hidden />
+          <Button asChild variant="outline">
+            <Link to="/">
+              Volver al inicio <ArrowRight size={16} aria-hidden />
             </Link>
           </Button>
           <div className="intro-art" aria-hidden>

@@ -10,167 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as ApiKeysRouteImport } from './routes/api-keys'
-import { Route as AuditLogsRouteImport } from './routes/audit-logs'
-import { Route as MfaPoliciesRouteImport } from './routes/mfa-policies'
-import { Route as ProvidersRouteImport } from './routes/providers'
-import { Route as RuntimeRouteImport } from './routes/runtime'
-import { Route as SessionsRouteImport } from './routes/sessions'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as SsoRouteImport } from './routes/sso'
-import { Route as UsersRouteImport } from './routes/users'
+import { Route as OverviewRouteImport } from './routes/overview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiKeysRoute = ApiKeysRouteImport.update({
-  id: '/api-keys',
-  path: '/api-keys',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuditLogsRoute = AuditLogsRouteImport.update({
-  id: '/audit-logs',
-  path: '/audit-logs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MfaPoliciesRoute = MfaPoliciesRouteImport.update({
-  id: '/mfa-policies',
-  path: '/mfa-policies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProvidersRoute = ProvidersRouteImport.update({
-  id: '/providers',
-  path: '/providers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RuntimeRoute = RuntimeRouteImport.update({
-  id: '/runtime',
-  path: '/runtime',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SessionsRoute = SessionsRouteImport.update({
-  id: '/sessions',
-  path: '/sessions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SsoRoute = SsoRouteImport.update({
-  id: '/sso',
-  path: '/sso',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const UsersRoute = UsersRouteImport.update({
-  id: '/users',
-  path: '/users',
+const OverviewRoute = OverviewRouteImport.update({
+  id: '/overview',
+  path: '/overview',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/api-keys': typeof ApiKeysRoute
-  '/audit-logs': typeof AuditLogsRoute
-  '/mfa-policies': typeof MfaPoliciesRoute
-  '/providers': typeof ProvidersRoute
-  '/runtime': typeof RuntimeRoute
-  '/sessions': typeof SessionsRoute
-  '/settings': typeof SettingsRoute
-  '/sso': typeof SsoRoute
-  '/users': typeof UsersRoute
+  '/overview': typeof OverviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/api-keys': typeof ApiKeysRoute
-  '/audit-logs': typeof AuditLogsRoute
-  '/mfa-policies': typeof MfaPoliciesRoute
-  '/providers': typeof ProvidersRoute
-  '/runtime': typeof RuntimeRoute
-  '/sessions': typeof SessionsRoute
-  '/settings': typeof SettingsRoute
-  '/sso': typeof SsoRoute
-  '/users': typeof UsersRoute
+  '/overview': typeof OverviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/api-keys': typeof ApiKeysRoute
-  '/audit-logs': typeof AuditLogsRoute
-  '/mfa-policies': typeof MfaPoliciesRoute
-  '/providers': typeof ProvidersRoute
-  '/runtime': typeof RuntimeRoute
-  '/sessions': typeof SessionsRoute
-  '/settings': typeof SettingsRoute
-  '/sso': typeof SsoRoute
-  '/users': typeof UsersRoute
+  '/overview': typeof OverviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/analytics'
-    | '/api-keys'
-    | '/audit-logs'
-    | '/mfa-policies'
-    | '/providers'
-    | '/runtime'
-    | '/sessions'
-    | '/settings'
-    | '/sso'
-    | '/users'
+  fullPaths: '/' | '/overview'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/analytics'
-    | '/api-keys'
-    | '/audit-logs'
-    | '/mfa-policies'
-    | '/providers'
-    | '/runtime'
-    | '/sessions'
-    | '/settings'
-    | '/sso'
-    | '/users'
-  id:
-    | '__root__'
-    | '/'
-    | '/analytics'
-    | '/api-keys'
-    | '/audit-logs'
-    | '/mfa-policies'
-    | '/providers'
-    | '/runtime'
-    | '/sessions'
-    | '/settings'
-    | '/sso'
-    | '/users'
+  to: '/' | '/overview'
+  id: '__root__' | '/' | '/overview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  ApiKeysRoute: typeof ApiKeysRoute
-  AuditLogsRoute: typeof AuditLogsRoute
-  MfaPoliciesRoute: typeof MfaPoliciesRoute
-  ProvidersRoute: typeof ProvidersRoute
-  RuntimeRoute: typeof RuntimeRoute
-  SessionsRoute: typeof SessionsRoute
-  SettingsRoute: typeof SettingsRoute
-  SsoRoute: typeof SsoRoute
-  UsersRoute: typeof UsersRoute
+  OverviewRoute: typeof OverviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -182,74 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api-keys': {
-      id: '/api-keys'
-      path: '/api-keys'
-      fullPath: '/api-keys'
-      preLoaderRoute: typeof ApiKeysRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/audit-logs': {
-      id: '/audit-logs'
-      path: '/audit-logs'
-      fullPath: '/audit-logs'
-      preLoaderRoute: typeof AuditLogsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mfa-policies': {
-      id: '/mfa-policies'
-      path: '/mfa-policies'
-      fullPath: '/mfa-policies'
-      preLoaderRoute: typeof MfaPoliciesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/providers': {
-      id: '/providers'
-      path: '/providers'
-      fullPath: '/providers'
-      preLoaderRoute: typeof ProvidersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/runtime': {
-      id: '/runtime'
-      path: '/runtime'
-      fullPath: '/runtime'
-      preLoaderRoute: typeof RuntimeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sessions': {
-      id: '/sessions'
-      path: '/sessions'
-      fullPath: '/sessions'
-      preLoaderRoute: typeof SessionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sso': {
-      id: '/sso'
-      path: '/sso'
-      fullPath: '/sso'
-      preLoaderRoute: typeof SsoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/users': {
-      id: '/users'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof UsersRouteImport
+    '/overview': {
+      id: '/overview'
+      path: '/overview'
+      fullPath: '/overview'
+      preLoaderRoute: typeof OverviewRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -257,16 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AnalyticsRoute: AnalyticsRoute,
-  ApiKeysRoute: ApiKeysRoute,
-  AuditLogsRoute: AuditLogsRoute,
-  MfaPoliciesRoute: MfaPoliciesRoute,
-  ProvidersRoute: ProvidersRoute,
-  RuntimeRoute: RuntimeRoute,
-  SessionsRoute: SessionsRoute,
-  SettingsRoute: SettingsRoute,
-  SsoRoute: SsoRoute,
-  UsersRoute: UsersRoute,
+  OverviewRoute: OverviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

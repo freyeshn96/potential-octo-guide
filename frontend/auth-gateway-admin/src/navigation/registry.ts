@@ -1,122 +1,25 @@
-import {
-  Activity,
-  BarChart3,
-  Clock3,
-  FileText,
-  Fingerprint,
-  KeyRound,
-  LayoutDashboard,
-  Link2,
-  Settings,
-  ShieldCheck,
-  Users,
-} from 'lucide-react'
+import { Home, LayoutDashboard } from 'lucide-react'
 import type { AppNavigationGroup } from '@/boilerplate/config/app-config'
 
 export const mainNavigation: readonly AppNavigationGroup[] = [
   {
-    id: 'overview',
-    label: 'Overview',
+    id: 'main',
+    label: 'Main',
     order: 0,
     items: [
       {
         to: '/',
-        label: 'Overview',
-        icon: LayoutDashboard,
+        label: 'Inicio',
+        icon: Home,
         order: 0,
         visible: true,
         exact: true,
       },
       {
-        to: '/users',
-        label: 'Users',
-        icon: Users,
+        to: '/overview',
+        label: 'Overview',
+        icon: LayoutDashboard,
         order: 1,
-        visible: true,
-      },
-      {
-        to: '/sessions',
-        label: 'Sessions',
-        icon: Clock3,
-        order: 2,
-        visible: true,
-      },
-      {
-        to: '/mfa-policies',
-        label: 'MFA Policies',
-        icon: ShieldCheck,
-        order: 3,
-        visible: true,
-      },
-    ],
-  },
-  {
-    id: 'identity',
-    label: 'Identity',
-    order: 1,
-    items: [
-      {
-        label: 'Providers',
-        icon: Fingerprint,
-        order: 0,
-        visible: true,
-        children: [
-          {
-            to: '/providers',
-            label: 'Catalog',
-            icon: Fingerprint,
-            order: 0,
-            visible: true,
-          },
-          {
-            to: '/sso',
-            label: 'SSO Config',
-            icon: Link2,
-            order: 1,
-            visible: true,
-          },
-          {
-            to: '/api-keys',
-            label: 'API Keys',
-            icon: KeyRound,
-            order: 2,
-            visible: true,
-          },
-        ],
-      },
-      {
-        to: '/audit-logs',
-        label: 'Audit Logs',
-        icon: FileText,
-        order: 1,
-        visible: true,
-      },
-    ],
-  },
-  {
-    id: 'system',
-    label: 'System',
-    order: 2,
-    items: [
-      {
-        to: '/runtime',
-        label: 'Runtime',
-        icon: Activity,
-        order: 0,
-        visible: true,
-      },
-      {
-        to: '/analytics',
-        label: 'Analytics',
-        icon: BarChart3,
-        order: 1,
-        visible: true,
-      },
-      {
-        to: '/settings',
-        label: 'Settings',
-        icon: Settings,
-        order: 2,
         visible: true,
       },
     ],
