@@ -3,14 +3,20 @@ import type {
   AppNavigationItem,
 } from '@/boilerplate/config/app-config'
 
-function itemMatchesQuery(item: AppNavigationItem, query: string): boolean {
+export type NavigationLabelResolver = (labelKey: string) => string
+
+function itemMatchesQuery(
+  item: AppNavigationItem,
+  query: string,
+  resolveLabel: NavigationLabelResolver,
+): boolean {
   if (!item.visible) {
     return false
   }
   if (query.length === 0) {
     return true
   }
-  return item.label.toLowerCase().includes(query)
+  return resolveLabel(item.labelKey).toLowerCase().includes(query)
 }
 
 function itemMatchesPath(item: AppNavigationItem, pathname: string): boolean {
@@ -30,14 +36,15 @@ function sortItems(items: readonly AppNavigationItem[]): AppNavigationItem[] {
 function includeItem(
   item: AppNavigationItem,
   query: string,
+  resolveLabel: NavigationLabelResolver,
 ): AppNavigationItem | undefined {
   if (!item.visible) {
     return undefined
   }
   const matchingChildren = item.children
-    ? filterItems(item.children, query)
+    ? filterItems(item.children, query, resolveLabel)
     : undefined
-  if (query.length === 0 || itemMatchesQuery(item, query)) {
+  if (query.length === 0 || itemMatchesQuery(item, query, resolveLabel)) {
     return {
       ...item,
       children: item.children
@@ -54,22 +61,24 @@ function includeItem(
 function filterItems(
   items: readonly AppNavigationItem[],
   query: string,
+  resolveLabel: NavigationLabelResolver,
 ): AppNavigationItem[] {
   return sortItems(items)
-    .map((item) => includeItem(item, query))
+    .map((item) => includeItem(item, query, resolveLabel))
     .filter((item): item is AppNavigationItem => item !== undefined)
 }
 
 export function filterNavigationGroups(
   groups: readonly AppNavigationGroup[],
   rawQuery: string,
+  resolveLabel: NavigationLabelResolver,
 ): AppNavigationGroup[] {
   const query = rawQuery.trim().toLowerCase()
   return [...groups]
     .sort((left, right) => left.order - right.order)
     .map((group) => ({
       ...group,
-      items: filterItems(group.items, query),
+      items: filterItems(group.items, query, resolveLabel),
     }))
     .filter((group) => group.items.length > 0)
 }

@@ -1,5 +1,23 @@
 import '@testing-library/jest-dom/vitest'
 import { vi } from 'vitest'
+import { i18n } from '@/i18n/init'
 
-// JSDOM has no layout engine; routing calls the browser's scroll API.
+i18n.addResourceBundle(
+  'es',
+  'navigation',
+  {
+    groups: {
+      testMain: 'Test Main',
+    },
+    items: {
+      testHome: 'Home',
+      testDiagnostics: 'Diagnostics',
+      testIdentity: 'Identity',
+      testCatalog: 'Catalog',
+    },
+  },
+  true,
+  true,
+)
+
 Object.defineProperty(window, 'scrollTo', { value: vi.fn(), writable: true })

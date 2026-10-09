@@ -12,6 +12,8 @@ This register separates confirmed constraints from choices that remain open. An 
 
 - Delivery 1.5 stage 1 structures the Admin frontend boilerplate as recorded in [0004. Admin frontend boilerplate structure](0004-admin-frontend-boilerplate-structure.md).
 
+- Admin frontend user-facing copy uses i18next with an initial Spanish locale as recorded in [0005. Admin frontend internationalization](0005-admin-frontend-i18n.md).
+
 - The initial provider is Keycloak. The MVP supports one provider implementation.
 - The MVP maps each stable Gateway Environment to one Keycloak realm; a Company is a business entity and is not equivalent to an Environment or realm.
 - Auth Gateway owns a provider-independent canonical resource model and business metadata. Keycloak remains operational authority for resources it manages.

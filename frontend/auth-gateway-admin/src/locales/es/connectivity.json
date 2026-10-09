@@ -1,0 +1,21 @@
+{
+  "ariaLabel": "Conectividad con el API",
+  "eyebrow": "CONEXIÓN EN VIVO",
+  "title": "Conectividad con el backend",
+  "status": {
+    "checking": "Comprobando conexión…",
+    "unavailable": "Conexión no disponible",
+    "connected": "API conectada"
+  },
+  "message": {
+    "checking": "Contactando con tu servicio backend independiente.",
+    "unavailable": "Comprueba que el backend esté en ejecución y que la URL del API esté configurada.",
+    "connected": "El endpoint del sistema responde correctamente."
+  },
+  "fields": {
+    "service": "Servicio",
+    "version": "Versión",
+    "endpoint": "Endpoint"
+  },
+  "checkConnection": "Comprobar conexión"
+}

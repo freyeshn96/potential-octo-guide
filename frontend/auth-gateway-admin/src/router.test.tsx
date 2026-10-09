@@ -2,7 +2,9 @@ import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider, createMemoryHistory } from '@tanstack/react-router'
+import { I18nextProvider } from 'react-i18next'
 import { createQueryClient } from '@/boilerplate/query/create-query-client'
+import { i18n } from '@/i18n/init'
 import { createAppRouter } from '@/router'
 
 beforeEach(() => {
@@ -33,12 +35,14 @@ describe('createAppRouter', () => {
     })
     router.update({ history })
     render(
-      <QueryClientProvider client={createQueryClient()}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
+      <I18nextProvider i18n={i18n}>
+        <QueryClientProvider client={createQueryClient()}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </I18nextProvider>,
     )
     expect(
-      await screen.findByRole('heading', { name: /A clear foundation/ }),
+      await screen.findByRole('heading', { name: /Una base clara/ }),
     ).toBeInTheDocument()
   })
 
@@ -49,12 +53,14 @@ describe('createAppRouter', () => {
     })
     router.update({ history })
     render(
-      <QueryClientProvider client={createQueryClient()}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
+      <I18nextProvider i18n={i18n}>
+        <QueryClientProvider client={createQueryClient()}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </I18nextProvider>,
     )
     expect(
-      await screen.findByRole('heading', { name: 'Page not found' }),
+      await screen.findByRole('heading', { name: 'Página no encontrada' }),
     ).toBeInTheDocument()
   })
 })

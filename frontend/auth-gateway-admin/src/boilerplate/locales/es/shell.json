@@ -1,0 +1,24 @@
+{
+  "sidebar": {
+    "ariaLabel": "Navegación de la aplicación",
+    "mainNav": "Principal",
+    "expand": "Expandir navegación",
+    "collapse": "Contraer navegación",
+    "searchPlaceholder": "Buscar"
+  },
+  "topbar": {
+    "toggleNavigation": "Alternar navegación",
+    "environment": "Entorno",
+    "notifications": "Notificaciones",
+    "help": "Ayuda",
+    "account": "Cuenta",
+    "primaryAction": "Nueva aplicación"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "backHome": "Volver al inicio"
+  },
+  "environment": {
+    "production": "Producción"
+  }
+}

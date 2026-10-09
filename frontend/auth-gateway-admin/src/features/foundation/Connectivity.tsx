@@ -5,18 +5,20 @@ import {
   RefreshCw,
   ArrowUpRight,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/boilerplate/components/ui/button'
 import { foundationServiceConfig } from '@/features/foundation/foundation-config'
 import { useSystemInformation } from '@/features/foundation/system-queries'
 
 export function Connectivity() {
+  const { t } = useTranslation('connectivity')
   const query = useSystemInformation()
   return (
-    <section className="connection panel" aria-label="API connectivity">
+    <section className="connection panel" aria-label={t('ariaLabel')}>
       <div className="panel-heading">
         <div>
-          <span className="eyebrow">LIVE CONNECTION</span>
-          <h2>Backend connectivity</h2>
+          <span className="eyebrow">{t('eyebrow')}</span>
+          <h2>{t('title')}</h2>
         </div>
         <span className="connection-icon">
           <ArrowUpRight size={20} aria-hidden />
@@ -37,31 +39,31 @@ export function Connectivity() {
         <div>
           <strong>
             {query.isPending
-              ? 'Checking connection…'
+              ? t('status.checking')
               : query.isError
-                ? 'Connection unavailable'
-                : 'API connected'}
+                ? t('status.unavailable')
+                : t('status.connected')}
           </strong>
           <p>
             {query.isError
-              ? 'Check that the backend is running and your API URL is configured.'
+              ? t('message.unavailable')
               : query.isPending
-                ? 'Contacting your independent backend service.'
-                : 'The system endpoint is responding successfully.'}
+                ? t('message.checking')
+                : t('message.connected')}
           </p>
         </div>
       </div>
       <dl className="connection-details">
         <div>
-          <dt>Service</dt>
+          <dt>{t('fields.service')}</dt>
           <dd>{foundationServiceConfig.expectedService}</dd>
         </div>
         <div>
-          <dt>Version</dt>
+          <dt>{t('fields.version')}</dt>
           <dd>{query.data?.version ?? '—'}</dd>
         </div>
         <div>
-          <dt>Endpoint</dt>
+          <dt>{t('fields.endpoint')}</dt>
           <dd>/api/v1/system/info</dd>
         </div>
       </dl>
@@ -72,7 +74,7 @@ export function Connectivity() {
         }}
         disabled={query.isFetching}
       >
-        <RefreshCw size={15} aria-hidden /> Check connection
+        <RefreshCw size={15} aria-hidden /> {t('checkConnection')}
       </Button>
     </section>
   )

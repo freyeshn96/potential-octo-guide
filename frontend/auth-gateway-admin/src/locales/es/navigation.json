@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "main": "Principal"
+  },
+  "items": {
+    "inicio": "Inicio",
+    "overview": "Overview"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "home": {
+    "eyebrow": "INICIO",
+    "titleLine1": "Bienvenido al",
+    "titleLine2": "panel de administración.",
+    "description": "Esta es la pantalla de inicio. Abre la demo de Overview para ver el layout completo y la verificación de conexión con el backend.",
+    "demoTitle": "Demo Overview",
+    "demoDescription": "Tarjetas, conectividad y contenido de ejemplo del shell de administración.",
+    "demoCta": "Ir a Overview"
+  },
+  "overview": {
+    "eyebrow": "FUNDACIÓN DE LA PLATAFORMA",
+    "titleLine1": "Una base clara.",
+    "titleLine2": "Espacio para construir.",
+    "description": "Tu espacio de administración está listo. Explora la base técnica y confirma la conexión con tu servicio.",
+    "introEyebrow": "ENTREGA 01",
+    "introTitle": "Preparado para la siguiente capa",
+    "introDescription": "Servicios independientes, límites explícitos y una interfaz sencilla. Lo esencial está listo para la siguiente entrega.",
+    "backHome": "Volver al inicio",
+    "sectionTitle": "Lo esencial, conectado",
+    "sectionSubtitle": "Un punto de partida técnico enfocado",
+    "cards": {
+      "compositionTitle": "Composición independiente",
+      "compositionDescription": "Este espacio de trabajo y su backend pueden construirse y desplegarse por separado.",
+      "boundariesTitle": "Límites explícitos",
+      "boundariesDescription": "Persistencia separada y propiedad clara mantienen la plataforma lista para evolucionar.",
+      "essentialsTitle": "Esenciales para desarrollo",
+      "essentialsDescription": "Acceso tipado al API, enrutamiento, pruebas automatizadas y comandos de compilación predecibles."
+    }
+  }
+}

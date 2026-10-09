@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useId, useMemo, useState } from 'react'
 import { Link, useRouterState } from '@tanstack/react-router'
 import {
   ChevronRight,
@@ -7,6 +7,7 @@ import {
   Hexagon,
   Search,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type {
   AppConfig,
   AppNavigationGroup,
@@ -28,10 +29,12 @@ export interface SidebarProps {
 function SidebarNavLink({
   item,
   nested = false,
+  itemLabel,
   onNavigate,
 }: {
   item: AppNavigationItem
   nested?: boolean
+  itemLabel: string
   onNavigate: () => void
 }) {
   const to = item.to
@@ -45,29 +48,33 @@ function SidebarNavLink({
     <Link
       to={to}
       className={cn(nested && 'nav-sub-link')}
-      aria-label={item.label}
-      title={item.label}
+      aria-label={itemLabel}
+      title={itemLabel}
       activeOptions={item.exact ? { exact: true } : undefined}
       activeProps={{ className: 'active' }}
       onClick={onNavigate}
     >
       {nested ? null : <Icon size={16} aria-hidden />}
-      <span className="nav-item-label">{item.label}</span>
+      <span className="nav-item-label">{itemLabel}</span>
     </Link>
   )
 }
 
 function SidebarNavBranch({
   item,
+  itemLabel,
   sidebarCollapsed,
-  flyoutLabel,
-  setFlyoutLabel,
+  flyoutLabelKey,
+  setFlyoutLabelKey,
+  resolveItemLabel,
   onNavigate,
 }: {
   item: AppNavigationItem
+  itemLabel: string
   sidebarCollapsed: boolean
-  flyoutLabel: string | null
-  setFlyoutLabel: (label: string | null) => void
+  flyoutLabelKey: string | null
+  setFlyoutLabelKey: (labelKey: string | null) => void
+  resolveItemLabel: (labelKey: string) => string
   onNavigate: () => void
 }) {
   const panelId = useId()
@@ -79,11 +86,11 @@ function SidebarNavBranch({
   const childActive = itemOrChildIsActive(item, pathname)
   const [open, setOpen] = useState(false)
   const panelOpen = childActive || open
-  const flyoutOpen = flyoutLabel === item.label
+  const flyoutOpen = flyoutLabelKey === item.labelKey
 
   const toggleBranch = () => {
     if (sidebarCollapsed) {
-      setFlyoutLabel(flyoutOpen ? null : item.label)
+      setFlyoutLabelKey(flyoutOpen ? null : item.labelKey)
       return
     }
     setOpen(!panelOpen)
@@ -105,18 +112,19 @@ function SidebarNavBranch({
         onClick={toggleBranch}
       >
         <Icon size={16} aria-hidden />
-        <span className="nav-item-label">{item.label}</span>
+        <span className="nav-item-label">{itemLabel}</span>
         <ChevronRight size={16} aria-hidden className="nav-branch-chevron" />
       </button>
       {sidebarCollapsed ? (
         flyoutOpen ? (
-          <div className="nav-flyout" role="menu" aria-label={item.label}>
+          <div className="nav-flyout" role="menu" aria-label={itemLabel}>
             {children.map((child) => (
               <SidebarNavLink
-                key={child.label}
+                key={child.labelKey}
                 item={child}
+                itemLabel={resolveItemLabel(child.labelKey)}
                 onNavigate={() => {
-                  setFlyoutLabel(null)
+                  setFlyoutLabelKey(null)
                   onNavigate()
                 }}
               />
@@ -132,9 +140,10 @@ function SidebarNavBranch({
           <div className="nav-sub-inner">
             {children.map((child) => (
               <SidebarNavLink
-                key={child.label}
+                key={child.labelKey}
                 item={child}
                 nested
+                itemLabel={resolveItemLabel(child.labelKey)}
                 onNavigate={onNavigate}
               />
             ))}
@@ -147,40 +156,58 @@ function SidebarNavBranch({
 
 function SidebarNavItem({
   item,
+  resolveItemLabel,
   sidebarCollapsed,
-  flyoutLabel,
-  setFlyoutLabel,
+  flyoutLabelKey,
+  setFlyoutLabelKey,
   onNavigate,
 }: {
   item: AppNavigationItem
+  resolveItemLabel: (labelKey: string) => string
   sidebarCollapsed: boolean
-  flyoutLabel: string | null
-  setFlyoutLabel: (label: string | null) => void
+  flyoutLabelKey: string | null
+  setFlyoutLabelKey: (labelKey: string | null) => void
   onNavigate: () => void
 }) {
+  const itemLabel = resolveItemLabel(item.labelKey)
   if (item.children !== undefined && item.children.length > 0) {
     return (
       <SidebarNavBranch
         item={item}
+        itemLabel={itemLabel}
         sidebarCollapsed={sidebarCollapsed}
-        flyoutLabel={flyoutLabel}
-        setFlyoutLabel={setFlyoutLabel}
+        flyoutLabelKey={flyoutLabelKey}
+        setFlyoutLabelKey={setFlyoutLabelKey}
+        resolveItemLabel={resolveItemLabel}
         onNavigate={onNavigate}
       />
     )
   }
-  return <SidebarNavLink item={item} onNavigate={onNavigate} />
+  return (
+    <SidebarNavLink item={item} itemLabel={itemLabel} onNavigate={onNavigate} />
+  )
 }
 
 export function Sidebar({ config, navigation }: SidebarProps) {
+  const { t: tNav } = useTranslation('navigation')
+  const { t: tShell } = useTranslation('shell')
   const { menuOpen, sidebarCollapsed, closeMenu, toggleSidebar } =
     useNavigation()
   const [query, setQuery] = useState('')
-  const [flyoutLabel, setFlyoutLabel] = useState<string | null>(null)
-  const visibleGroups = filterNavigationGroups(navigation, query)
+  const [flyoutLabelKey, setFlyoutLabelKey] = useState<string | null>(null)
+  const resolveItemLabel = useMemo(
+    () => (labelKey: string) => tNav(labelKey),
+    [tNav],
+  )
+  const visibleGroups = filterNavigationGroups(
+    navigation,
+    query,
+    resolveItemLabel,
+  )
+  const searchPlaceholder = tShell('sidebar.searchPlaceholder')
 
   const handleToggleSidebar = () => {
-    setFlyoutLabel(null)
+    setFlyoutLabelKey(null)
     toggleSidebar()
   }
 
@@ -191,7 +218,7 @@ export function Sidebar({ config, navigation }: SidebarProps) {
         menuOpen && 'is-open',
         sidebarCollapsed && 'is-collapsed',
       )}
-      aria-label="Application navigation"
+      aria-label={tShell('sidebar.ariaLabel')}
     >
       <div className="sidebar-brand-row">
         <Link to="/" className="brand" onClick={closeMenu}>
@@ -205,7 +232,9 @@ export function Sidebar({ config, navigation }: SidebarProps) {
           variant="ghost"
           className="sidebar-collapse"
           aria-label={
-            sidebarCollapsed ? 'Expand navigation' : 'Collapse navigation'
+            sidebarCollapsed
+              ? tShell('sidebar.expand')
+              : tShell('sidebar.collapse')
           }
           aria-expanded={!sidebarCollapsed}
           onClick={handleToggleSidebar}
@@ -222,24 +251,25 @@ export function Sidebar({ config, navigation }: SidebarProps) {
         <input
           type="search"
           value={query}
-          placeholder={config.search.placeholder}
-          aria-label={config.search.placeholder}
+          placeholder={searchPlaceholder}
+          aria-label={searchPlaceholder}
           onChange={(event) => {
             setQuery(event.target.value)
           }}
         />
       </label>
-      <nav aria-label="Main">
+      <nav aria-label={tShell('sidebar.mainNav')}>
         {visibleGroups.map((group) => (
           <section key={group.id} className="nav-group">
-            <h2 className="nav-group-label">{group.label}</h2>
+            <h2 className="nav-group-label">{tNav(group.labelKey)}</h2>
             {group.items.map((item) => (
               <SidebarNavItem
-                key={item.label}
+                key={item.labelKey}
                 item={item}
+                resolveItemLabel={resolveItemLabel}
                 sidebarCollapsed={sidebarCollapsed}
-                flyoutLabel={flyoutLabel}
-                setFlyoutLabel={setFlyoutLabel}
+                flyoutLabelKey={flyoutLabelKey}
+                setFlyoutLabelKey={setFlyoutLabelKey}
                 onNavigate={closeMenu}
               />
             ))}

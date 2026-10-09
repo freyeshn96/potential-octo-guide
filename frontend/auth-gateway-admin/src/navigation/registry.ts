@@ -4,12 +4,12 @@ import type { AppNavigationGroup } from '@/boilerplate/config/app-config'
 export const mainNavigation: readonly AppNavigationGroup[] = [
   {
     id: 'main',
-    label: 'Main',
+    labelKey: 'groups.main',
     order: 0,
     items: [
       {
         to: '/',
-        label: 'Inicio',
+        labelKey: 'items.inicio',
         icon: Home,
         order: 0,
         visible: true,
@@ -17,7 +17,7 @@ export const mainNavigation: readonly AppNavigationGroup[] = [
       },
       {
         to: '/overview',
-        label: 'Overview',
+        labelKey: 'items.overview',
         icon: LayoutDashboard,
         order: 1,
         visible: true,

@@ -40,9 +40,9 @@ describe('Admin foundation', () => {
     render(<App />)
     await userEvent.click(await screen.findByRole('link', { name: 'Overview' }))
     expect(
-      await screen.findByRole('heading', { name: /A clear foundation/ }),
+      await screen.findByRole('heading', { name: /Una base clara/ }),
     ).toBeInTheDocument()
-    expect(await screen.findByText('API connected')).toBeInTheDocument()
+    expect(await screen.findByText('API conectada')).toBeInTheDocument()
     expect(
       screen.getByText(foundationServiceConfig.expectedService),
     ).toBeInTheDocument()
@@ -55,7 +55,7 @@ describe('Admin foundation', () => {
     )
     render(<App />)
     await userEvent.click(await screen.findByRole('link', { name: 'Overview' }))
-    expect(await screen.findByText('Checking connection…')).toBeInTheDocument()
+    expect(await screen.findByText('Comprobando conexión…')).toBeInTheDocument()
   })
 
   it('renders a recoverable connection error', async () => {
@@ -66,10 +66,10 @@ describe('Admin foundation', () => {
     render(<App />)
     await userEvent.click(await screen.findByRole('link', { name: 'Overview' }))
     expect(
-      await screen.findByText('Connection unavailable'),
+      await screen.findByText('Conexión no disponible'),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: 'Check connection' }),
+      screen.getByRole('button', { name: 'Comprobar conexión' }),
     ).toBeEnabled()
   })
 
@@ -89,7 +89,7 @@ describe('Admin foundation', () => {
     render(<App />)
     await userEvent.click(await screen.findByRole('link', { name: 'Overview' }))
     expect(
-      await screen.findByText('Connection unavailable'),
+      await screen.findByText('Conexión no disponible'),
     ).toBeInTheDocument()
   })
 
@@ -97,15 +97,17 @@ describe('Admin foundation', () => {
     render(<App />)
     await userEvent.click(await screen.findByRole('link', { name: 'Overview' }))
     expect(
-      await screen.findByRole('heading', { name: /A clear foundation/ }),
+      await screen.findByRole('heading', { name: /Una base clara/ }),
     ).toBeInTheDocument()
-    expect(screen.getByText('Overview', { selector: '.topbar-page' })).toBeInTheDocument()
+    expect(
+      screen.getByText('Overview', { selector: '.topbar-page' }),
+    ).toBeInTheDocument()
   })
 
   it('shares navigation state between the header and navigation', async () => {
     render(<App />)
     const toggle = await screen.findByRole('button', {
-      name: 'Toggle navigation',
+      name: 'Alternar navegación',
     })
     await userEvent.click(toggle)
     expect(toggle).toHaveAttribute('aria-expanded', 'true')

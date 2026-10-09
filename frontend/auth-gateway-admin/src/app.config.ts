@@ -13,13 +13,4 @@ export const appConfig: AppConfig = {
     name: 'A. Parent',
     initials: 'A',
   },
-  search: {
-    placeholder: 'Search',
-  },
-  environment: {
-    label: 'Production',
-  },
-  primaryAction: {
-    label: 'New Application',
-  },
 }

@@ -20,26 +20,17 @@ const testConfig: AppConfig = {
     name: 'Sample User',
     initials: 'S',
   },
-  search: {
-    placeholder: 'Find',
-  },
-  environment: {
-    label: 'Sandbox',
-  },
-  primaryAction: {
-    label: 'New Resource',
-  },
 }
 
 const testNavigation = [
   {
     id: 'main',
-    label: 'Main',
+    labelKey: 'groups.testMain',
     order: 0,
     items: [
       {
         to: '/',
-        label: 'Home',
+        labelKey: 'items.testHome',
         icon: Layers3,
         order: 0,
         visible: true,
@@ -47,20 +38,20 @@ const testNavigation = [
       },
       {
         to: '/runtime',
-        label: 'Diagnostics',
+        labelKey: 'items.testDiagnostics',
         icon: Home,
         order: 1,
         visible: true,
       },
       {
-        label: 'Identity',
+        labelKey: 'items.testIdentity',
         icon: Fingerprint,
         order: 2,
         visible: true,
         children: [
           {
             to: '/providers',
-            label: 'Catalog',
+            labelKey: 'items.testCatalog',
             icon: Fingerprint,
             order: 0,
             visible: true,
@@ -89,9 +80,9 @@ describe('AppShell', () => {
     expect(screen.getByText('Sample Admin')).toBeInTheDocument()
     expect(screen.getByText('Demo Workspace')).toBeInTheDocument()
     expect(screen.getByText('Sample User')).toBeInTheDocument()
-    expect(screen.getByText('Sandbox')).toBeInTheDocument()
+    expect(screen.getByText('Producción')).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: 'New Resource' }),
+      screen.getByRole('button', { name: 'Nueva aplicación' }),
     ).toBeInTheDocument()
     expect(screen.getByText('Child content')).toBeInTheDocument()
     expect(screen.queryByText('Auth Gateway')).not.toBeInTheDocument()
@@ -104,7 +95,7 @@ describe('AppShell', () => {
       </AppShell>,
     )
     await userEvent.type(
-      screen.getByRole('searchbox', { name: 'Find' }),
+      screen.getByRole('searchbox', { name: 'Buscar' }),
       'diag',
     )
     expect(
