@@ -17,8 +17,6 @@ describe('mainNavigation registry', () => {
     expect(screen.getByRole('link', { name: 'Providers' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Runtime' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Settings' })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: 'Identity' }),
-    ).toBeInTheDocument()
+    expect(screen.getByText('Identity')).toBeInTheDocument()
   })
 })

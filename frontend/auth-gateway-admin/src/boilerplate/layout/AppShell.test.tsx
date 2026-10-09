@@ -1,11 +1,10 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import { cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithRouter } from '@/test/render-with-router'
 import { Home, Layers3 } from 'lucide-react'
 import { AppShell } from '@/boilerplate/layout/AppShell'
 import type { AppConfig } from '@/boilerplate/config/app-config'
-import { useNavigation } from '@/boilerplate/navigation/navigation-state'
 
 const testConfig: AppConfig = {
   identity: {
@@ -57,10 +56,6 @@ const testNavigation = [
 ]
 
 describe('AppShell', () => {
-  beforeEach(() => {
-    useNavigation.setState({ menuOpen: false, sidebarCollapsed: false })
-  })
-
   afterEach(() => {
     cleanup()
   })

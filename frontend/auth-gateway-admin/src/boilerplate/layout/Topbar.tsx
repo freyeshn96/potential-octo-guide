@@ -1,12 +1,19 @@
 import { useRouterState } from '@tanstack/react-router'
-import { Bell, CircleHelp, Menu, Plus, X } from 'lucide-react'
+import { Bell, CircleHelp, Plus } from 'lucide-react'
 import type {
   AppConfig,
   AppNavigationGroup,
 } from '@/boilerplate/config/app-config'
+import { Avatar, AvatarFallback } from '@/boilerplate/components/ui/avatar'
+import { Badge } from '@/boilerplate/components/ui/badge'
 import { Button } from '@/boilerplate/components/ui/button'
+import { SidebarTrigger, useSidebar } from '@/boilerplate/components/ui/sidebar'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/boilerplate/components/ui/tooltip'
 import { findNavigationItem } from '@/boilerplate/navigation/navigation'
-import { useNavigation } from '@/boilerplate/navigation/navigation-state'
 
 export interface TopbarProps {
   config: AppConfig
@@ -14,55 +21,70 @@ export interface TopbarProps {
 }
 
 export function Topbar({ config, navigation }: TopbarProps) {
-  const { menuOpen, toggleMenu } = useNavigation()
+  const { isMobile } = useSidebar()
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   })
   const currentItem = findNavigationItem(navigation, pathname)
 
   return (
-    <header className="topbar">
-      <div className="topbar-leading">
-        <Button
-          size="icon"
-          variant="ghost"
-          className="menu-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          onClick={toggleMenu}
-        >
-          {menuOpen ? <X size={18} /> : <Menu size={18} />}
-        </Button>
-        <p className="topbar-page">
+    <header className="flex h-14 items-center justify-between gap-4 border-b border-border px-4 md:px-6">
+      <div className="flex min-w-0 items-center gap-2.5">
+        {isMobile ? <SidebarTrigger /> : null}
+        <p className="topbar-page m-0 truncate text-[13px] text-muted-foreground">
           {currentItem?.label ?? config.identity.name}
         </p>
       </div>
-      <div className="topbar-actions">
-        <button
-          type="button"
-          className="environment-chip"
-          aria-label="Environment"
+      <div className="flex items-center gap-2.5">
+        <Badge
+          variant="outline"
+          className="h-8 gap-2 px-2.5 max-[600px]:hidden"
         >
-          <span className="environment-dot" />
+          <span className="size-1.5 rounded-full bg-emerald-500" />
           {config.environment.label}
-        </button>
-        <button
+        </Badge>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="size-8 rounded-full"
+              aria-label="Notifications"
+            >
+              <Bell size={15} />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Notifications</TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="size-8 rounded-full"
+              aria-label="Help"
+            >
+              <CircleHelp size={15} />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Help</TooltipContent>
+        </Tooltip>
+        <Button
           type="button"
-          className="topbar-icon"
-          aria-label="Notifications"
+          variant="outline"
+          className="h-8 rounded-full px-2.5 text-xs"
+          aria-label="Account"
         >
-          <Bell size={15} aria-hidden />
-        </button>
-        <button type="button" className="topbar-icon" aria-label="Help">
-          <CircleHelp size={15} aria-hidden />
-        </button>
-        <button type="button" className="user-chip" aria-label="Account">
-          <span className="user-avatar" aria-hidden>
-            {config.user.initials}
-          </span>
-          <span>{config.user.name}</span>
-        </button>
-        <Button className="primary-action" type="button">
+          <Avatar className="size-5">
+            <AvatarFallback className="text-[9px]">
+              {config.user.initials}
+            </AvatarFallback>
+          </Avatar>
+          <span className="max-[850px]:hidden">{config.user.name}</span>
+        </Button>
+        <Button type="button" className="h-8 px-3 text-xs">
           <Plus size={14} aria-hidden />
           {config.primaryAction.label}
         </Button>

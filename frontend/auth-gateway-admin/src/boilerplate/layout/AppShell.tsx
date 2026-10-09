@@ -3,7 +3,11 @@ import type {
   AppConfig,
   AppNavigationGroup,
 } from '@/boilerplate/config/app-config'
-import { Sidebar } from '@/boilerplate/layout/Sidebar'
+import {
+  SidebarInset,
+  SidebarProvider,
+} from '@/boilerplate/components/ui/sidebar'
+import { AppSidebar } from '@/boilerplate/layout/Sidebar'
 import { Topbar } from '@/boilerplate/layout/Topbar'
 
 export interface AppShellProps {
@@ -14,12 +18,12 @@ export interface AppShellProps {
 
 export function AppShell({ config, navigation, children }: AppShellProps) {
   return (
-    <div className="app-shell">
-      <Sidebar config={config} navigation={navigation} />
-      <div className="workspace">
+    <SidebarProvider>
+      <AppSidebar config={config} navigation={navigation} />
+      <SidebarInset>
         <Topbar config={config} navigation={navigation} />
         <main id="main-content">{children}</main>
-      </div>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   )
 }

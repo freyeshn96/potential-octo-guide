@@ -2,12 +2,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { App } from './App'
-import { useNavigation } from '@/boilerplate/navigation/navigation-state'
 import { foundationServiceConfig } from '@/features/foundation/foundation-config'
 
 beforeEach(() => {
   window.history.replaceState({}, '', '/')
-  useNavigation.setState({ menuOpen: false, sidebarCollapsed: false })
   vi.stubGlobal(
     'fetch',
     vi.fn().mockResolvedValue(
@@ -88,14 +86,13 @@ describe('Admin foundation', () => {
       screen.getByRole('heading', { name: 'Service diagnostics' }),
     ).toBeInTheDocument()
   })
-  it('shares navigation state between the header and navigation', async () => {
+  it('toggles the sidebar from the header control', async () => {
     render(<App />)
     const toggle = await screen.findByRole('button', {
       name: 'Toggle navigation',
     })
-    await userEvent.click(toggle)
     expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    await userEvent.click(screen.getByRole('link', { name: 'Runtime' }))
+    await userEvent.click(toggle)
     expect(toggle).toHaveAttribute('aria-expanded', 'false')
   })
 
