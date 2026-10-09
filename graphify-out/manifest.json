@@ -1,0 +1,722 @@
+{
+  "frontend/auth-gateway-admin/.prettierrc.json": {
+    "mtime": 1791511418.8325558,
+    "seen": 1791514202.4144676,
+    "ast_hash": "c0aa793870f6ac891a9adc46b430ff84",
+    "semantic_hash": "c0aa793870f6ac891a9adc46b430ff84"
+  },
+  "frontend/auth-gateway-admin/components.json": {
+    "mtime": 1791513150.967915,
+    "seen": 1791514202.4144719,
+    "ast_hash": "8536c40a7024e91337c4854c8a69173c",
+    "semantic_hash": "8536c40a7024e91337c4854c8a69173c"
+  },
+  "frontend/auth-gateway-admin/eslint.config.js": {
+    "mtime": 1791511418.8524406,
+    "seen": 1791514202.4144735,
+    "ast_hash": "261435fd2c134bb5a2b1ab1454066c8a",
+    "semantic_hash": "261435fd2c134bb5a2b1ab1454066c8a"
+  },
+  "frontend/auth-gateway-admin/package.json": {
+    "mtime": 1791513981.1387787,
+    "seen": 1791514202.4144742,
+    "ast_hash": "82e0fea9d627c9e32fb60c0ceab2c755",
+    "semantic_hash": "82e0fea9d627c9e32fb60c0ceab2c755"
+  },
+  "frontend/auth-gateway-admin/src/App.test.tsx": {
+    "mtime": 1791514083.124963,
+    "seen": 1791514202.414475,
+    "ast_hash": "68065dfee2b2e94aa5e05cbdbe6aaa9a",
+    "semantic_hash": "68065dfee2b2e94aa5e05cbdbe6aaa9a"
+  },
+  "frontend/auth-gateway-admin/src/App.tsx": {
+    "mtime": 1791514043.130397,
+    "seen": 1791514202.4144754,
+    "ast_hash": "71f3d36f3bfd51918e6ec15f247634d1",
+    "semantic_hash": "71f3d36f3bfd51918e6ec15f247634d1"
+  },
+  "frontend/auth-gateway-admin/src/app.config.ts": {
+    "mtime": 1791514017.0825124,
+    "seen": 1791514202.4144764,
+    "ast_hash": "cfd28a1047d48aee49fb4e72d9170f68",
+    "semantic_hash": "cfd28a1047d48aee49fb4e72d9170f68"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/components/ui/button.tsx": {
+    "mtime": 1791513150.971423,
+    "seen": 1791514202.4144769,
+    "ast_hash": "baa0c0faf510c07039cde9e4dfe3489d",
+    "semantic_hash": "baa0c0faf510c07039cde9e4dfe3489d"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/config/app-config.ts": {
+    "mtime": 1791514016.374815,
+    "seen": 1791514202.4144773,
+    "ast_hash": "8d972e47411fd6c911f41ac4346d146c",
+    "semantic_hash": "8d972e47411fd6c911f41ac4346d146c"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/config/env.ts": {
+    "mtime": 1791511418.9178612,
+    "seen": 1791514202.414478,
+    "ast_hash": "cac64ce9ba735ea165195ba95508b67b",
+    "semantic_hash": "cac64ce9ba735ea165195ba95508b67b"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/config/normalize-base-path.test.ts": {
+    "mtime": 1791511418.9188654,
+    "seen": 1791514202.4144788,
+    "ast_hash": "8f7430e59757ef1e57dceb3cfcb16a75",
+    "semantic_hash": "8f7430e59757ef1e57dceb3cfcb16a75"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/config/normalize-base-path.ts": {
+    "mtime": 1791511418.9468615,
+    "seen": 1791514202.4144797,
+    "ast_hash": "d0c23363810fabfefc203753b651de25",
+    "semantic_hash": "d0c23363810fabfefc203753b651de25"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/http/http-client.test.ts": {
+    "mtime": 1791511418.9709828,
+    "seen": 1791514202.4144802,
+    "ast_hash": "2dd0dcae448e993ae33efd479ddf26f1",
+    "semantic_hash": "2dd0dcae448e993ae33efd479ddf26f1"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/http/http-client.ts": {
+    "mtime": 1791511418.9774046,
+    "seen": 1791514202.4144804,
+    "ast_hash": "c8f0e2aec0464816105b240fe19f1d33",
+    "semantic_hash": "c8f0e2aec0464816105b240fe19f1d33"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/http/http-error.ts": {
+    "mtime": 1791511418.9779105,
+    "seen": 1791514202.4144812,
+    "ast_hash": "f47d6f7219848c1ba8cbac4bc9095ab8",
+    "semantic_hash": "f47d6f7219848c1ba8cbac4bc9095ab8"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/http/problem-details.ts": {
+    "mtime": 1791511419.0015376,
+    "seen": 1791514202.4144814,
+    "ast_hash": "1d0dfbd12e3041b43c9a580152cfb00d",
+    "semantic_hash": "1d0dfbd12e3041b43c9a580152cfb00d"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/i18n/create-i18n.ts": {
+    "mtime": 1791514106.8646226,
+    "seen": 1791514202.4144819,
+    "ast_hash": "de36aa8bb8b519f3c32eafd29e909d8b",
+    "semantic_hash": "de36aa8bb8b519f3c32eafd29e909d8b"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/layout/AppShell.test.tsx": {
+    "mtime": 1791514060.598889,
+    "seen": 1791514202.4144824,
+    "ast_hash": "44d60772a6e32e6fe849dbad687fb8e7",
+    "semantic_hash": "44d60772a6e32e6fe849dbad687fb8e7"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/layout/AppShell.tsx": {
+    "mtime": 1791513150.9734223,
+    "seen": 1791514202.4144828,
+    "ast_hash": "ec9ce0a662cb174b4f6eca8c2a4adde3",
+    "semantic_hash": "ec9ce0a662cb174b4f6eca8c2a4adde3"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/layout/Sidebar.tsx": {
+    "mtime": 1791514083.248117,
+    "seen": 1791514202.4144835,
+    "ast_hash": "1deaff4dba58209776182611d9483ed2",
+    "semantic_hash": "1deaff4dba58209776182611d9483ed2"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/layout/Topbar.tsx": {
+    "mtime": 1791514036.335217,
+    "seen": 1791514202.414484,
+    "ast_hash": "60d49ac987c3c93e253823b55c926955",
+    "semantic_hash": "60d49ac987c3c93e253823b55c926955"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/lib/cn.ts": {
+    "mtime": 1791511419.0314915,
+    "seen": 1791514202.4144845,
+    "ast_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429",
+    "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/navigation/navigation-state.ts": {
+    "mtime": 1791513150.9754238,
+    "seen": 1791514202.414485,
+    "ast_hash": "8a25031d0c8cfd0f1a093d5d3434790a",
+    "semantic_hash": "8a25031d0c8cfd0f1a093d5d3434790a"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/navigation/navigation.test.ts": {
+    "mtime": 1791514083.2836165,
+    "seen": 1791514202.4144857,
+    "ast_hash": "d7cfd0317b44384f55d381f180a87b57",
+    "semantic_hash": "d7cfd0317b44384f55d381f180a87b57"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/navigation/navigation.ts": {
+    "mtime": 1791514023.2790782,
+    "seen": 1791514202.4144862,
+    "ast_hash": "16389bea41d3fe5a8256519c0a2f51a7",
+    "semantic_hash": "16389bea41d3fe5a8256519c0a2f51a7"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/query/create-query-client.test.ts": {
+    "mtime": 1791511419.0336902,
+    "seen": 1791514202.414487,
+    "ast_hash": "a9465f84131fd9ec04c7ee432ba125c8",
+    "semantic_hash": "a9465f84131fd9ec04c7ee432ba125c8"
+  },
+  "frontend/auth-gateway-admin/src/boilerplate/query/create-query-client.ts": {
+    "mtime": 1791511419.0346906,
+    "seen": 1791514202.4144874,
+    "ast_hash": "3f28ec37277e7ebba38a0d563c318bee",
+    "semantic_hash": "3f28ec37277e7ebba38a0d563c318bee"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/Connectivity.tsx": {
+    "mtime": 1791514041.0651987,
+    "seen": 1791514202.4144878,
+    "ast_hash": "717e96c3216ffaf17494c1166d5d1c13",
+    "semantic_hash": "717e96c3216ffaf17494c1166d5d1c13"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/HomePage.tsx": {
+    "mtime": 1791514038.0354712,
+    "seen": 1791514202.414488,
+    "ast_hash": "13c5983db66c3bdbf7b8c627d2e80779",
+    "semantic_hash": "13c5983db66c3bdbf7b8c627d2e80779"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/OverviewPage.tsx": {
+    "mtime": 1791514039.0953035,
+    "seen": 1791514202.4144886,
+    "ast_hash": "b64dae61d0a1c7ccb280b6adddb6a32d",
+    "semantic_hash": "b64dae61d0a1c7ccb280b6adddb6a32d"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/RuntimePage.tsx": {
+    "mtime": 1791511419.105082,
+    "seen": 1791514202.414489,
+    "ast_hash": "5a8c0f0357274e1ee1780038b48e14fa",
+    "semantic_hash": "5a8c0f0357274e1ee1780038b48e14fa"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/foundation-config.ts": {
+    "mtime": 1791511419.105082,
+    "seen": 1791514202.4144895,
+    "ast_hash": "1d68db9a9d88ab6d9a3a295dd71b0221",
+    "semantic_hash": "1d68db9a9d88ab6d9a3a295dd71b0221"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/system-api.ts": {
+    "mtime": 1791511419.10608,
+    "seen": 1791514202.4144897,
+    "ast_hash": "774538314f71e61ef4fdc5f9988b3035",
+    "semantic_hash": "774538314f71e61ef4fdc5f9988b3035"
+  },
+  "frontend/auth-gateway-admin/src/features/foundation/system-queries.ts": {
+    "mtime": 1791511419.10708,
+    "seen": 1791514202.4144905,
+    "ast_hash": "9c16c7f06d3cbbed8f1cd60272a25dbb",
+    "semantic_hash": "9c16c7f06d3cbbed8f1cd60272a25dbb"
+  },
+  "frontend/auth-gateway-admin/src/features/placeholders/PlaceholderPage.tsx": {
+    "mtime": 1791514066.7942076,
+    "seen": 1791514202.414491,
+    "ast_hash": "db4a52c0d62c309550baa317815d7c5a",
+    "semantic_hash": "db4a52c0d62c309550baa317815d7c5a"
+  },
+  "frontend/auth-gateway-admin/src/i18n/init.ts": {
+    "mtime": 1791514107.028659,
+    "seen": 1791514202.4144914,
+    "ast_hash": "506ac8a0b3319f78a52892a02b9741cf",
+    "semantic_hash": "506ac8a0b3319f78a52892a02b9741cf"
+  },
+  "frontend/auth-gateway-admin/src/layout/root-layout.tsx": {
+    "mtime": 1791514042.394634,
+    "seen": 1791514202.4144917,
+    "ast_hash": "195de6fef2d7f59bb8942dbeb7d43fe3",
+    "semantic_hash": "195de6fef2d7f59bb8942dbeb7d43fe3"
+  },
+  "frontend/auth-gateway-admin/src/main.tsx": {
+    "mtime": 1791511419.109587,
+    "seen": 1791514202.4144921,
+    "ast_hash": "ae47c59b68af13ed192c51c68891d35a",
+    "semantic_hash": "ae47c59b68af13ed192c51c68891d35a"
+  },
+  "frontend/auth-gateway-admin/src/navigation/registry.test.tsx": {
+    "mtime": 1791514083.4614189,
+    "seen": 1791514202.4144926,
+    "ast_hash": "fbe9cf0f19de50069673617a220c22fa",
+    "semantic_hash": "fbe9cf0f19de50069673617a220c22fa"
+  },
+  "frontend/auth-gateway-admin/src/navigation/registry.ts": {
+    "mtime": 1791514018.2803605,
+    "seen": 1791514202.414493,
+    "ast_hash": "a165bfa2100efdeb4d8da07833b745fe",
+    "semantic_hash": "a165bfa2100efdeb4d8da07833b745fe"
+  },
+  "frontend/auth-gateway-admin/src/routeTree.gen.ts": {
+    "mtime": 1791513896.88117,
+    "seen": 1791514202.4144933,
+    "ast_hash": "b124051c14fbe594d86c963ac83da3b7",
+    "semantic_hash": "b124051c14fbe594d86c963ac83da3b7"
+  },
+  "frontend/auth-gateway-admin/src/router.test.tsx": {
+    "mtime": 1791514076.2657752,
+    "seen": 1791514202.4144943,
+    "ast_hash": "8743b4b82e1b12a6c13e5489b8199415",
+    "semantic_hash": "8743b4b82e1b12a6c13e5489b8199415"
+  },
+  "frontend/auth-gateway-admin/src/router.ts": {
+    "mtime": 1791511419.1125896,
+    "seen": 1791514202.4144948,
+    "ast_hash": "fc38733617a8df014f9a4c590028b5bb",
+    "semantic_hash": "fc38733617a8df014f9a4c590028b5bb"
+  },
+  "frontend/auth-gateway-admin/src/routes/__root.tsx": {
+    "mtime": 1791511419.113731,
+    "seen": 1791514202.4144957,
+    "ast_hash": "498fc4a4f22b6f0e1341844f14d6930a",
+    "semantic_hash": "498fc4a4f22b6f0e1341844f14d6930a"
+  },
+  "frontend/auth-gateway-admin/src/routes/index.tsx": {
+    "mtime": 1791513644.585276,
+    "seen": 1791514202.4144962,
+    "ast_hash": "4a1b71423d6e7f116f4da562e0dc4710",
+    "semantic_hash": "4a1b71423d6e7f116f4da562e0dc4710"
+  },
+  "frontend/auth-gateway-admin/src/routes/overview.tsx": {
+    "mtime": 1791513644.587275,
+    "seen": 1791514202.4144967,
+    "ast_hash": "090aebaec8fc84d94f198966b9560eda",
+    "semantic_hash": "090aebaec8fc84d94f198966b9560eda"
+  },
+  "frontend/auth-gateway-admin/src/test/render-with-router.tsx": {
+    "mtime": 1791514056.562972,
+    "seen": 1791514202.4144974,
+    "ast_hash": "9d018f8e00c86b8160e66fc95d44c755",
+    "semantic_hash": "9d018f8e00c86b8160e66fc95d44c755"
+  },
+  "frontend/auth-gateway-admin/src/test/setup.ts": {
+    "mtime": 1791514056.5564623,
+    "seen": 1791514202.4144976,
+    "ast_hash": "7014d0ed541e4c5dd8fd80ced2925078",
+    "semantic_hash": "7014d0ed541e4c5dd8fd80ced2925078"
+  },
+  "frontend/auth-gateway-admin/tsconfig.json": {
+    "mtime": 1791511419.1330328,
+    "seen": 1791514202.414498,
+    "ast_hash": "eb42956d498eecf42060d5b9e9725064",
+    "semantic_hash": "eb42956d498eecf42060d5b9e9725064"
+  },
+  "frontend/auth-gateway-admin/vite.config.ts": {
+    "mtime": 1791511419.1330328,
+    "seen": 1791514202.4144986,
+    "ast_hash": "6eab38d0a9efdc6c5a5899d44ed79838",
+    "semantic_hash": "6eab38d0a9efdc6c5a5899d44ed79838"
+  },
+  "frontend/auth-gateway-client/.prettierrc.json": {
+    "mtime": 1791511419.139716,
+    "seen": 1791514202.414499,
+    "ast_hash": "c0aa793870f6ac891a9adc46b430ff84",
+    "semantic_hash": "c0aa793870f6ac891a9adc46b430ff84"
+  },
+  "frontend/auth-gateway-client/components.json": {
+    "mtime": 1791511419.1407142,
+    "seen": 1791514202.4144993,
+    "ast_hash": "7dc45fbcd80f6289b2454746958692a2",
+    "semantic_hash": "7dc45fbcd80f6289b2454746958692a2"
+  },
+  "frontend/auth-gateway-client/eslint.config.js": {
+    "mtime": 1791511419.1427171,
+    "seen": 1791514202.4144998,
+    "ast_hash": "4d43f0a708dcde486b4b21d3b9214902",
+    "semantic_hash": "4d43f0a708dcde486b4b21d3b9214902"
+  },
+  "frontend/auth-gateway-client/package.json": {
+    "mtime": 1791511419.152634,
+    "seen": 1791514202.4145002,
+    "ast_hash": "50db02597faf309685e5f06c585f3140",
+    "semantic_hash": "50db02597faf309685e5f06c585f3140"
+  },
+  "frontend/auth-gateway-client/src/App.test.tsx": {
+    "mtime": 1791511419.1582494,
+    "seen": 1791514202.4145007,
+    "ast_hash": "cc2ad21cc6a9a838bf65f99b79be5cbb",
+    "semantic_hash": "cc2ad21cc6a9a838bf65f99b79be5cbb"
+  },
+  "frontend/auth-gateway-client/src/App.tsx": {
+    "mtime": 1791511419.1582494,
+    "seen": 1791514202.4145012,
+    "ast_hash": "da8d1b88eedd89097154e959046a9302",
+    "semantic_hash": "da8d1b88eedd89097154e959046a9302"
+  },
+  "frontend/auth-gateway-client/src/api/queries.ts": {
+    "mtime": 1791511419.1597545,
+    "seen": 1791514202.4145017,
+    "ast_hash": "f0a18cdaca4a56bc72163081b33ffa36",
+    "semantic_hash": "f0a18cdaca4a56bc72163081b33ffa36"
+  },
+  "frontend/auth-gateway-client/src/api/system.ts": {
+    "mtime": 1791511419.1597545,
+    "seen": 1791514202.4145024,
+    "ast_hash": "1c0c482334dd334a975556429849a2fb",
+    "semantic_hash": "1c0c482334dd334a975556429849a2fb"
+  },
+  "frontend/auth-gateway-client/src/components/connectivity.tsx": {
+    "mtime": 1791511419.1607616,
+    "seen": 1791514202.414503,
+    "ast_hash": "d9a6adf5b52c5620ad443525f1534fff",
+    "semantic_hash": "d9a6adf5b52c5620ad443525f1534fff"
+  },
+  "frontend/auth-gateway-client/src/components/ui/button.tsx": {
+    "mtime": 1791511419.1627622,
+    "seen": 1791514202.4145036,
+    "ast_hash": "1be37c59fea4adf87a5fa92e73a61775",
+    "semantic_hash": "1be37c59fea4adf87a5fa92e73a61775"
+  },
+  "frontend/auth-gateway-client/src/config.ts": {
+    "mtime": 1791511419.1692698,
+    "seen": 1791514202.4145043,
+    "ast_hash": "f412f39187e0edd203e0cb896eb44104",
+    "semantic_hash": "f412f39187e0edd203e0cb896eb44104"
+  },
+  "frontend/auth-gateway-client/src/lib/utils.ts": {
+    "mtime": 1791511419.1702716,
+    "seen": 1791514202.4145048,
+    "ast_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429",
+    "semantic_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429"
+  },
+  "frontend/auth-gateway-client/src/main.tsx": {
+    "mtime": 1791511419.17127,
+    "seen": 1791514202.4145052,
+    "ast_hash": "b6fa87db971ecab3daf84cc4b012d1f2",
+    "semantic_hash": "b6fa87db971ecab3daf84cc4b012d1f2"
+  },
+  "frontend/auth-gateway-client/src/router.tsx": {
+    "mtime": 1791511419.1757753,
+    "seen": 1791514202.4145057,
+    "ast_hash": "ceab6832f3ec13c2380b75a13be253b6",
+    "semantic_hash": "ceab6832f3ec13c2380b75a13be253b6"
+  },
+  "frontend/auth-gateway-client/src/state/navigation.ts": {
+    "mtime": 1791511419.1767757,
+    "seen": 1791514202.4145062,
+    "ast_hash": "3980043d71811134da0deef54099e501",
+    "semantic_hash": "3980043d71811134da0deef54099e501"
+  },
+  "frontend/auth-gateway-client/src/test/setup.ts": {
+    "mtime": 1791511419.17813,
+    "seen": 1791514202.414507,
+    "ast_hash": "575f92607d44c6bd61dfda30edb639e8",
+    "semantic_hash": "575f92607d44c6bd61dfda30edb639e8"
+  },
+  "frontend/auth-gateway-client/tsconfig.json": {
+    "mtime": 1791511419.1791346,
+    "seen": 1791514202.4145076,
+    "ast_hash": "eb42956d498eecf42060d5b9e9725064",
+    "semantic_hash": "eb42956d498eecf42060d5b9e9725064"
+  },
+  "frontend/auth-gateway-client/vite.config.ts": {
+    "mtime": 1791511419.1791346,
+    "seen": 1791514202.4145079,
+    "ast_hash": "285c49b6a3e8c5bc105c2213c57b0e5a",
+    "semantic_hash": "285c49b6a3e8c5bc105c2213c57b0e5a"
+  },
+  "infrastructure/docker/initialize-databases.sh": {
+    "mtime": 1791511419.1886547,
+    "seen": 1791514202.4145083,
+    "ast_hash": "184fcd1b7f0b64110c446cafe40894f5",
+    "semantic_hash": "184fcd1b7f0b64110c446cafe40894f5"
+  },
+  "scripts/Initialize-Development.ps1": {
+    "mtime": 1791511419.1906593,
+    "seen": 1791514202.4145088,
+    "ast_hash": "85b5422e80201c5137e06a68aa84dd19",
+    "semantic_hash": "85b5422e80201c5137e06a68aa84dd19"
+  },
+  "scripts/Set-DevelopmentEnvironment.ps1": {
+    "mtime": 1791511419.1906593,
+    "seen": 1791514202.4145093,
+    "ast_hash": "a2bb37f0de643f3d19f467d734315444",
+    "semantic_hash": "a2bb37f0de643f3d19f467d734315444"
+  },
+  "src/Admin/AuthGateway.Admin.Application/ApplicationRegistration.cs": {
+    "mtime": 1791511419.1989005,
+    "seen": 1791514202.4145098,
+    "ast_hash": "ac040b5e6c8e144aa466c53bac1a6b97",
+    "semantic_hash": "ac040b5e6c8e144aa466c53bac1a6b97"
+  },
+  "src/Admin/AuthGateway.Admin.Application/AuthGateway.Admin.Application.csproj": {
+    "mtime": 1791511419.2049954,
+    "seen": 1791514202.4145103,
+    "ast_hash": "66b6baa04f18cd5204be48eec2c348cc",
+    "semantic_hash": "66b6baa04f18cd5204be48eec2c348cc"
+  },
+  "src/Admin/AuthGateway.Admin.Domain/AuthGateway.Admin.Domain.csproj": {
+    "mtime": 1791511419.2135553,
+    "seen": 1791514202.414511,
+    "ast_hash": "d1de05d6f98bfe8c0ca911e23e0c56d1",
+    "semantic_hash": "d1de05d6f98bfe8c0ca911e23e0c56d1"
+  },
+  "src/Admin/AuthGateway.Admin.Host/AdminModule.cs": {
+    "mtime": 1791511419.228882,
+    "seen": 1791514202.4145114,
+    "ast_hash": "daf308aad57bfcef9c3d63029a942af4",
+    "semantic_hash": "daf308aad57bfcef9c3d63029a942af4"
+  },
+  "src/Admin/AuthGateway.Admin.Host/ApiOptions.cs": {
+    "mtime": 1791511419.2348928,
+    "seen": 1791514202.414512,
+    "ast_hash": "1fe7e82ecc02fe417235573e5338795b",
+    "semantic_hash": "1fe7e82ecc02fe417235573e5338795b"
+  },
+  "src/Admin/AuthGateway.Admin.Host/AuthGateway.Admin.Host.csproj": {
+    "mtime": 1791511419.2424495,
+    "seen": 1791514202.4145126,
+    "ast_hash": "d7babc35d820b9cd77b78f6c87a734c7",
+    "semantic_hash": "d7babc35d820b9cd77b78f6c87a734c7"
+  },
+  "src/Admin/AuthGateway.Admin.Host/Program.cs": {
+    "mtime": 1791511419.2424495,
+    "seen": 1791514202.414513,
+    "ast_hash": "5675919ca42739bd589cbe749460e439",
+    "semantic_hash": "5675919ca42739bd589cbe749460e439"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/AdminDbContext.cs": {
+    "mtime": 1791511419.2648878,
+    "seen": 1791514202.4145136,
+    "ast_hash": "b7b82538267984229bcf7e02d93b7761",
+    "semantic_hash": "b7b82538267984229bcf7e02d93b7761"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/AuthGateway.Admin.Infrastructure.csproj": {
+    "mtime": 1791511419.2713156,
+    "seen": 1791514202.414514,
+    "ast_hash": "f84d451daeb83ef03ea75fef6cfe77bf",
+    "semantic_hash": "f84d451daeb83ef03ea75fef6cfe77bf"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/DatabaseHealthCheck.cs": {
+    "mtime": 1791511419.2728405,
+    "seen": 1791514202.4145148,
+    "ast_hash": "4dd40c01713114eb1716899dc5d8c63d",
+    "semantic_hash": "4dd40c01713114eb1716899dc5d8c63d"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/DatabaseOptions.cs": {
+    "mtime": 1791511419.2728405,
+    "seen": 1791514202.4145153,
+    "ast_hash": "c6ee26f5eadd0ea0a0522eb789851f5b",
+    "semantic_hash": "c6ee26f5eadd0ea0a0522eb789851f5b"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/DesignTimeDbContextFactory.cs": {
+    "mtime": 1791511419.273845,
+    "seen": 1791514202.4145157,
+    "ast_hash": "3e13a0a0fccc5358729e29708f57c739",
+    "semantic_hash": "3e13a0a0fccc5358729e29708f57c739"
+  },
+  "src/Admin/AuthGateway.Admin.Infrastructure/InfrastructureRegistration.cs": {
+    "mtime": 1791511419.279,
+    "seen": 1791514202.4145162,
+    "ast_hash": "3cc952001eac703a8d93f5d9a0143fcd",
+    "semantic_hash": "3cc952001eac703a8d93f5d9a0143fcd"
+  },
+  "src/Admin/AuthGateway.Admin.Presentation/ApiExceptionHandler.cs": {
+    "mtime": 1791511419.28582,
+    "seen": 1791514202.414517,
+    "ast_hash": "737be54ae387c03eb877e9da92da0edf",
+    "semantic_hash": "737be54ae387c03eb877e9da92da0edf"
+  },
+  "src/Admin/AuthGateway.Admin.Presentation/AuthGateway.Admin.Presentation.csproj": {
+    "mtime": 1791511419.291826,
+    "seen": 1791514202.4145174,
+    "ast_hash": "2991905f236db76db4b17e4477d23e54",
+    "semantic_hash": "2991905f236db76db4b17e4477d23e54"
+  },
+  "src/Admin/AuthGateway.Admin.Presentation/PresentationRegistration.cs": {
+    "mtime": 1791511419.292827,
+    "seen": 1791514202.4145186,
+    "ast_hash": "db03607f72d3c5e410ecbe46b53dcff8",
+    "semantic_hash": "db03607f72d3c5e410ecbe46b53dcff8"
+  },
+  "src/Admin/AuthGateway.Admin.Presentation/SystemEndpoints.cs": {
+    "mtime": 1791511419.3000662,
+    "seen": 1791514202.414519,
+    "ast_hash": "125ce27f9cadc2fb8681d62b8cf7a47d",
+    "semantic_hash": "125ce27f9cadc2fb8681d62b8cf7a47d"
+  },
+  "src/AuthGateway.slnx": {
+    "mtime": 1791511419.3000662,
+    "seen": 1791514202.4145195,
+    "ast_hash": "8123b3ddc321b8984adc9a9ecddccdcb",
+    "semantic_hash": "8123b3ddc321b8984adc9a9ecddccdcb"
+  },
+  "src/BuildingBlocks/AuthGateway.Contracts/AuthGateway.Contracts.csproj": {
+    "mtime": 1791511419.3070827,
+    "seen": 1791514202.41452,
+    "ast_hash": "80f05a21712fbff33d18e570bafa96c3",
+    "semantic_hash": "80f05a21712fbff33d18e570bafa96c3"
+  },
+  "src/BuildingBlocks/AuthGateway.Contracts/SystemInformation.cs": {
+    "mtime": 1791511419.315093,
+    "seen": 1791514202.4145205,
+    "ast_hash": "dd11cead27b60e2693f5256e34a58e64",
+    "semantic_hash": "dd11cead27b60e2693f5256e34a58e64"
+  },
+  "src/Server/AuthGateway.Server.Application/ApplicationRegistration.cs": {
+    "mtime": 1791511419.3240933,
+    "seen": 1791514202.414521,
+    "ast_hash": "c96d4e543cce84cc3ac41834727ef98d",
+    "semantic_hash": "c96d4e543cce84cc3ac41834727ef98d"
+  },
+  "src/Server/AuthGateway.Server.Application/AuthGateway.Server.Application.csproj": {
+    "mtime": 1791511419.3300977,
+    "seen": 1791514202.4145217,
+    "ast_hash": "69f4d70fcb447140786d174b49d1f5e0",
+    "semantic_hash": "69f4d70fcb447140786d174b49d1f5e0"
+  },
+  "src/Server/AuthGateway.Server.Domain/AuthGateway.Server.Domain.csproj": {
+    "mtime": 1791511419.3310978,
+    "seen": 1791514202.4145222,
+    "ast_hash": "d1de05d6f98bfe8c0ca911e23e0c56d1",
+    "semantic_hash": "d1de05d6f98bfe8c0ca911e23e0c56d1"
+  },
+  "src/Server/AuthGateway.Server.Host/ApiOptions.cs": {
+    "mtime": 1791511419.3467722,
+    "seen": 1791514202.4145226,
+    "ast_hash": "84e2e11742fe04dada82eeab95810378",
+    "semantic_hash": "84e2e11742fe04dada82eeab95810378"
+  },
+  "src/Server/AuthGateway.Server.Host/AuthGateway.Server.Host.csproj": {
+    "mtime": 1791511419.3527403,
+    "seen": 1791514202.414523,
+    "ast_hash": "e12ba84ecf108dadbe22da44ea8c0c02",
+    "semantic_hash": "e12ba84ecf108dadbe22da44ea8c0c02"
+  },
+  "src/Server/AuthGateway.Server.Host/Program.cs": {
+    "mtime": 1791511419.3537433,
+    "seen": 1791514202.4145234,
+    "ast_hash": "5ac41fea5a45ec023a0ac6dc9980e9cd",
+    "semantic_hash": "5ac41fea5a45ec023a0ac6dc9980e9cd"
+  },
+  "src/Server/AuthGateway.Server.Host/ServerModule.cs": {
+    "mtime": 1791511419.3679545,
+    "seen": 1791514202.4145238,
+    "ast_hash": "84bf7ed96ae3416ddbc190296f0b9e76",
+    "semantic_hash": "84bf7ed96ae3416ddbc190296f0b9e76"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/AuthGateway.Server.Infrastructure.csproj": {
+    "mtime": 1791511419.3825583,
+    "seen": 1791514202.4145243,
+    "ast_hash": "5e540a7c9ca10aec03bc6bd467180d1b",
+    "semantic_hash": "5e540a7c9ca10aec03bc6bd467180d1b"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/DatabaseHealthCheck.cs": {
+    "mtime": 1791511419.3825583,
+    "seen": 1791514202.414525,
+    "ast_hash": "9a52b868cf09772b0534d3adffdaad0a",
+    "semantic_hash": "9a52b868cf09772b0534d3adffdaad0a"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/DatabaseOptions.cs": {
+    "mtime": 1791511419.3839076,
+    "seen": 1791514202.4145255,
+    "ast_hash": "33cf891f956309cb5464884b87cb204f",
+    "semantic_hash": "33cf891f956309cb5464884b87cb204f"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/DesignTimeDbContextFactory.cs": {
+    "mtime": 1791511419.3839076,
+    "seen": 1791514202.414526,
+    "ast_hash": "b45b0cd4fee7f0c3a51635b4b0bceefc",
+    "semantic_hash": "b45b0cd4fee7f0c3a51635b4b0bceefc"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/InfrastructureRegistration.cs": {
+    "mtime": 1791511419.3899078,
+    "seen": 1791514202.4145265,
+    "ast_hash": "0aab46de90f2cbcee68266f974990b26",
+    "semantic_hash": "0aab46de90f2cbcee68266f974990b26"
+  },
+  "src/Server/AuthGateway.Server.Infrastructure/ServerDbContext.cs": {
+    "mtime": 1791511419.3979309,
+    "seen": 1791514202.414527,
+    "ast_hash": "54af235a7b9066a0d7ff2b5e89ef1113",
+    "semantic_hash": "54af235a7b9066a0d7ff2b5e89ef1113"
+  },
+  "src/Server/AuthGateway.Server.Presentation/ApiExceptionHandler.cs": {
+    "mtime": 1791511419.4025197,
+    "seen": 1791514202.4145274,
+    "ast_hash": "8352f3daa7884baa58e948f1aa1c7708",
+    "semantic_hash": "8352f3daa7884baa58e948f1aa1c7708"
+  },
+  "src/Server/AuthGateway.Server.Presentation/AuthGateway.Server.Presentation.csproj": {
+    "mtime": 1791511419.4101686,
+    "seen": 1791514202.414528,
+    "ast_hash": "fc5124fe1d2920ba64f00f8cd1ac4004",
+    "semantic_hash": "fc5124fe1d2920ba64f00f8cd1ac4004"
+  },
+  "src/Server/AuthGateway.Server.Presentation/PresentationRegistration.cs": {
+    "mtime": 1791511419.4116728,
+    "seen": 1791514202.4145284,
+    "ast_hash": "a1c6a43e292f904aa12f699fbb26874f",
+    "semantic_hash": "a1c6a43e292f904aa12f699fbb26874f"
+  },
+  "src/Server/AuthGateway.Server.Presentation/SystemEndpoints.cs": {
+    "mtime": 1791511419.4178867,
+    "seen": 1791514202.4145288,
+    "ast_hash": "063336b67f2864aba2bfaf6c8775c113",
+    "semantic_hash": "063336b67f2864aba2bfaf6c8775c113"
+  },
+  "src/tests/AuthGateway.Admin.IntegrationTests/ApiTests.cs": {
+    "mtime": 1791511419.4188867,
+    "seen": 1791514202.4145293,
+    "ast_hash": "0c2523cbb694671956e075859b23c367",
+    "semantic_hash": "0c2523cbb694671956e075859b23c367"
+  },
+  "src/tests/AuthGateway.Admin.IntegrationTests/AuthGateway.Admin.IntegrationTests.csproj": {
+    "mtime": 1791511419.4198856,
+    "seen": 1791514202.4145296,
+    "ast_hash": "b409d5e1b2f096be0d981bdb707ecb01",
+    "semantic_hash": "b409d5e1b2f096be0d981bdb707ecb01"
+  },
+  "src/tests/AuthGateway.Admin.IntegrationTests/FoundationFactory.cs": {
+    "mtime": 1791511419.4208865,
+    "seen": 1791514202.41453,
+    "ast_hash": "3d72689a2464f7d779bd06974b9f0deb",
+    "semantic_hash": "3d72689a2464f7d779bd06974b9f0deb"
+  },
+  "src/tests/AuthGateway.Admin.IntegrationTests/PostgreSqlTests.cs": {
+    "mtime": 1791511419.4208865,
+    "seen": 1791514202.4145305,
+    "ast_hash": "125353aeaba1bed8804a949b3bb4e7fb",
+    "semantic_hash": "125353aeaba1bed8804a949b3bb4e7fb"
+  },
+  "src/tests/AuthGateway.Admin.UnitTests/AuthGateway.Admin.UnitTests.csproj": {
+    "mtime": 1791511419.4208865,
+    "seen": 1791514202.414531,
+    "ast_hash": "ba0f330f69b73bbb9641dfc07d1fabc4",
+    "semantic_hash": "ba0f330f69b73bbb9641dfc07d1fabc4"
+  },
+  "src/tests/AuthGateway.Admin.UnitTests/FoundationTests.cs": {
+    "mtime": 1791511419.4223905,
+    "seen": 1791514202.4145315,
+    "ast_hash": "09e9bfdfc68fa7e258f67469e7cc7a97",
+    "semantic_hash": "09e9bfdfc68fa7e258f67469e7cc7a97"
+  },
+  "src/tests/AuthGateway.Server.IntegrationTests/ApiTests.cs": {
+    "mtime": 1791511419.422904,
+    "seen": 1791514202.4145322,
+    "ast_hash": "f371358742d6acd2fb88b5f20ffe8a97",
+    "semantic_hash": "f371358742d6acd2fb88b5f20ffe8a97"
+  },
+  "src/tests/AuthGateway.Server.IntegrationTests/AuthGateway.Server.IntegrationTests.csproj": {
+    "mtime": 1791511419.4239087,
+    "seen": 1791514202.4145327,
+    "ast_hash": "f72341fdd9340fb992c7e7b015c022aa",
+    "semantic_hash": "f72341fdd9340fb992c7e7b015c022aa"
+  },
+  "src/tests/AuthGateway.Server.IntegrationTests/FoundationFactory.cs": {
+    "mtime": 1791511419.4239087,
+    "seen": 1791514202.4145331,
+    "ast_hash": "7ec5345d18fe6d5040b9bb728397ba1f",
+    "semantic_hash": "7ec5345d18fe6d5040b9bb728397ba1f"
+  },
+  "src/tests/AuthGateway.Server.IntegrationTests/PostgreSqlTests.cs": {
+    "mtime": 1791511419.4249086,
+    "seen": 1791514202.4145334,
+    "ast_hash": "e736e4d1327f2ee4ffee73f49340efb2",
+    "semantic_hash": "e736e4d1327f2ee4ffee73f49340efb2"
+  },
+  "src/tests/AuthGateway.Server.UnitTests/AuthGateway.Server.UnitTests.csproj": {
+    "mtime": 1791511419.4249086,
+    "seen": 1791514202.4145339,
+    "ast_hash": "3f820c39e147d8992900c15eb16759f1",
+    "semantic_hash": "3f820c39e147d8992900c15eb16759f1"
+  },
+  "src/tests/AuthGateway.Server.UnitTests/FoundationTests.cs": {
+    "mtime": 1791511419.4259071,
+    "seen": 1791514202.4145343,
+    "ast_hash": "a14b97c786b81892a0b95c89bea5ef2a",
+    "semantic_hash": "a14b97c786b81892a0b95c89bea5ef2a"
+  }
+}
