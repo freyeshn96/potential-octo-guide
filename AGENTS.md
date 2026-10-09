@@ -30,3 +30,5 @@ When the user or project owner approves a new architectural decision:
 4. Keep rejected or superseded decisions linked to their replacement instead of deleting the decision history.
 
 The repository root `AGENTS.md` is the portable entry point for coding agents that support `AGENTS.md`. Other agent-specific files may be added only when the repository adopts a tool that requires them; keep them aligned with this source. For TanStack cache work, use the `tanstack-cache-consistency` skill in `.cursor/skills/` when implementing or reviewing queries and mutations; it references engineering standards and does not replace them.
+
+For every task involving UI, always use the [frontend-design skill](.agents/skills/frontend-design/SKILL.md), sourced from [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design). This includes creating, modifying, fixing, or reviewing UI. Its visual guidance supplements [engineering standards](docs/engineering/standards.md) and confirmed decisions; preserve the approved stack, existing UI conventions, and localization requirements unless the user explicitly requests a change.

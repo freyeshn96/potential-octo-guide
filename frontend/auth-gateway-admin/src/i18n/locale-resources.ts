@@ -3,9 +3,11 @@ import connectivityEs from '@/locales/es/connectivity.json'
 import metaEs from '@/locales/es/meta.json'
 import navigationEs from '@/locales/es/navigation.json'
 import pagesEs from '@/locales/es/pages.json'
+import authenticationEs from '@/locales/es/authentication.json'
 import type { AppLocaleResources } from '@/boilerplate/i18n/create-i18n'
 
 const appResourcesEs: AppLocaleResources = {
+  authentication: authenticationEs,
   connectivity: connectivityEs,
   meta: metaEs,
   navigation: navigationEs,
@@ -18,7 +20,8 @@ export const shellResourcesByLocale: Readonly<
   es: shellEs,
 }
 
-export const appResourcesByLocale: Readonly<Record<string, AppLocaleResources>> =
-  {
-    es: appResourcesEs,
-  }
+export const appResourcesByLocale: Readonly<
+  Record<string, AppLocaleResources>
+> = {
+  es: appResourcesEs,
+}

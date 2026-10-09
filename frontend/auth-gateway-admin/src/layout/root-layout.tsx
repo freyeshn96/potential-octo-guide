@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, Outlet } from '@tanstack/react-router'
+import { Link, Outlet, useRouterState } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { AppShell } from '@/boilerplate/layout/AppShell'
 import { appConfig } from '@/app.config'
@@ -19,6 +19,11 @@ function useDocumentMeta() {
 
 export function RootLayout() {
   useDocumentMeta()
+  const isAuthenticationPage = useRouterState({
+    select: (state) =>
+      state.matches.some((match) => match.routeId === '/login'),
+  })
+  if (isAuthenticationPage) return <Outlet />
   return (
     <AppShell config={appConfig} navigation={mainNavigation}>
       <Outlet />
