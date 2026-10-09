@@ -80,7 +80,7 @@ services:
       admin:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--spider", "http://localhost/healthz"]
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1/healthz"]
       interval: 10s
       timeout: 3s
       retries: 5
@@ -100,7 +100,7 @@ services:
       server:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--spider", "http://localhost/healthz"]
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1/healthz"]
       interval: 10s
       timeout: 3s
       retries: 5

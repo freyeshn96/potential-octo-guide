@@ -10,7 +10,12 @@ server {
         return 200 "healthy\n";
     }
     location /api/ {
-        proxy_pass http://${API_UPSTREAM};
+        # Resolve the Compose service name at request time. A literal proxy_pass
+        # host is resolved while nginx starts, so the frontend exits if the API
+        # container is not on the network yet.
+        resolver 127.0.0.11 valid=10s ipv6=off;
+        set $api_upstream ${API_UPSTREAM};
+        proxy_pass http://$api_upstream;
         proxy_set_header Host $host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_connect_timeout 5s;
