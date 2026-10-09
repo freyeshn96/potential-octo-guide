@@ -2,33 +2,38 @@ import type { LucideIcon } from 'lucide-react'
 
 export interface AppShellIdentity {
   name: string
-  workspaceSubtitle: string
-  version: string
+  initials: string
 }
 
-export interface AppShellSidebarNote {
-  title: string
-  body: string
-  versionLabel: string
+export interface AppShellWorkspace {
+  name: string
+  initials: string
 }
 
-export interface AppShellTopbar {
-  breadcrumbSegment: string
-  breadcrumbCurrent: string
-  environmentBadge: string
+export interface AppShellUser {
+  name: string
+  initials: string
 }
 
-export interface AppShellFooter {
-  left: string
-  right: string
+export interface AppShellSearch {
+  placeholder: string
+}
+
+export interface AppShellEnvironment {
+  label: string
+}
+
+export interface AppShellPrimaryAction {
+  label: string
 }
 
 export interface AppConfig {
   identity: AppShellIdentity
-  navLabel: string
-  sidebarNote: AppShellSidebarNote
-  topbar: AppShellTopbar
-  footer: AppShellFooter
+  workspace: AppShellWorkspace
+  user: AppShellUser
+  search: AppShellSearch
+  environment: AppShellEnvironment
+  primaryAction: AppShellPrimaryAction
 }
 
 export interface AppNavigationItem {
@@ -38,4 +43,11 @@ export interface AppNavigationItem {
   order: number
   visible: boolean
   exact?: boolean
+}
+
+export interface AppNavigationGroup {
+  id: string
+  label: string
+  order: number
+  items: readonly AppNavigationItem[]
 }

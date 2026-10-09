@@ -3,22 +3,23 @@ import type { AppConfig } from '@/boilerplate/config/app-config'
 export const appConfig: AppConfig = {
   identity: {
     name: 'Auth Gateway',
-    workspaceSubtitle: 'Admin workspace',
-    version: '1.0.0',
+    initials: 'AG',
   },
-  navLabel: 'WORKSPACE',
-  sidebarNote: {
-    title: 'Foundation',
-    body: 'A focused starting point for secure application integration.',
-    versionLabel: 'DELIVERY 01',
+  workspace: {
+    name: 'Acme Corp',
+    initials: 'A',
   },
-  topbar: {
-    breadcrumbSegment: 'Admin',
-    breadcrumbCurrent: 'Foundation',
-    environmentBadge: 'Technical preview',
+  user: {
+    name: 'A. Parent',
+    initials: 'A',
   },
-  footer: {
-    left: 'Independent by design.',
-    right: 'Auth Gateway / Admin',
+  search: {
+    placeholder: 'Search',
+  },
+  environment: {
+    label: 'Production',
+  },
+  primaryAction: {
+    label: 'New Application',
   },
 }

@@ -7,7 +7,7 @@ import { foundationServiceConfig } from '@/features/foundation/foundation-config
 
 beforeEach(() => {
   window.history.replaceState({}, '', '/')
-  useNavigation.setState({ menuOpen: false })
+  useNavigation.setState({ menuOpen: false, sidebarCollapsed: false })
   vi.stubGlobal(
     'fetch',
     vi.fn().mockResolvedValue(
@@ -97,5 +97,16 @@ describe('Admin foundation', () => {
     expect(toggle).toHaveAttribute('aria-expanded', 'true')
     await userEvent.click(screen.getByRole('link', { name: 'Runtime' }))
     expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('opens a layout destination without feature content', async () => {
+    render(<App />)
+    await userEvent.click(await screen.findByRole('link', { name: 'Users' }))
+    expect(
+      await screen.findByRole('heading', { name: 'Users' }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Users', { selector: '.topbar-page' }),
+    ).toBeInTheDocument()
   })
 })

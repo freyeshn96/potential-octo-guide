@@ -4,13 +4,13 @@
   font-size: 10px;
   letter-spacing: 1.5px;
   font-weight: 700;
-  color: #718096;
+  color: #71717a;
 }
 .page-heading {
   margin-bottom: 34px;
 }
 .page-heading .eyebrow {
-  color: #397e79;
+  color: #a1a1aa;
 }
 h1 {
   font-size: clamp(32px, 3vw, 44px);
@@ -20,10 +20,10 @@ h1 {
   margin: 14px 0;
 }
 h1 span {
-  color: #8b97a8;
+  color: #71717a;
 }
 .page-heading p {
-  color: #758196;
+  color: #a1a1aa;
   max-width: 620px;
   font-size: 13px;
   line-height: 1.8;
@@ -36,14 +36,14 @@ h1 span {
 .panel {
   border: 1px solid var(--border);
   border-radius: 15px;
-  background: #fff;
-  box-shadow: 0 3px 12px #25354a03;
+  background: var(--card);
+  box-shadow: none;
   padding: 27px;
 }
 .intro-panel {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(120deg, #fff 35%, #eef6f5);
+  background: #111113;
 }
 .feature-icon {
   display: flex;
@@ -52,8 +52,8 @@ h1 span {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: #eef5f3;
-  color: #267a72;
+  background: #18181b;
+  color: #d4d4d8;
   margin-bottom: 23px;
 }
 .intro-panel h2 {
@@ -66,7 +66,7 @@ h1 span {
 }
 .intro-panel p {
   max-width: 290px;
-  color: #748296;
+  color: #a1a1aa;
   font-size: 12px;
   line-height: 1.8;
   margin-bottom: 19px;
@@ -80,9 +80,9 @@ h1 span {
 }
 .intro-tags span {
   font-size: 9px;
-  color: #69827e;
-  background: #edf5f3;
-  border: 1px solid #dcebe6;
+  color: #a1a1aa;
+  background: #18181b;
+  border: 1px solid var(--border);
   border-radius: 5px;
   padding: 4px 7px;
 }
@@ -102,9 +102,9 @@ h1 span {
 .intro-art div {
   position: absolute;
   inset: 20px;
-  border: 1px solid #b8d7cf;
+  border: 1px solid #27272a;
   border-radius: 22px;
-  background: #eef6f333;
+  background: #18181b33;
 }
 .intro-art div:nth-child(2) {
   transform: translate(20px, -22px);
@@ -128,7 +128,7 @@ h1 span {
   border: 1px solid var(--border);
   border-radius: 9px;
   padding: 8px;
-  color: #97a4b5;
+  color: #71717a;
 }
 .connection-status {
   display: flex;
@@ -138,12 +138,12 @@ h1 span {
   padding: 16px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  color: #778294;
-  background: #f8fafc;
+  color: #a1a1aa;
+  background: #0b0b0d;
 }
 .connection-status strong {
   font-size: 12px;
-  color: #445367;
+  color: #e4e4e7;
 }
 .connection-status p {
   font-size: 10px;
@@ -151,14 +151,14 @@ h1 span {
   margin: 5px 0 0;
 }
 .connection-status.connected {
-  background: #f1f9f5;
-  border-color: #d9ece3;
-  color: #3b8b6f;
+  background: #052e16;
+  border-color: #14532d;
+  color: #4ade80;
 }
 .connection-status.failed {
-  background: #fff9f0;
-  border-color: #f1e4cb;
-  color: #ad803d;
+  background: #1c1917;
+  border-color: #44403c;
+  color: #fbbf24;
 }
 .connection-details {
   margin: 15px 0 21px;
@@ -171,11 +171,11 @@ h1 span {
   font-size: 10px;
 }
 .connection-details dt {
-  color: #8a95a5;
+  color: #71717a;
 }
 .connection-details dd {
   margin: 0;
-  color: #5a687b;
+  color: #d4d4d8;
   font-family: ui-monospace, monospace;
   overflow-wrap: anywhere;
   text-align: right;
@@ -192,7 +192,7 @@ h1 span {
   font-weight: 600;
 }
 .section-title span {
-  color: #9aa4b2;
+  color: #71717a;
   font-size: 10px;
 }
 .foundation-grid {
@@ -204,10 +204,10 @@ h1 span {
   border: 1px solid var(--border);
   padding: 22px;
   border-radius: 12px;
-  background: #ffffffb3;
+  background: var(--card);
 }
 .small-card svg {
-  color: #7d8c9f;
+  color: #a1a1aa;
   margin-bottom: 16px;
 }
 .small-card h3 {
@@ -216,7 +216,7 @@ h1 span {
   margin: 0 0 9px;
 }
 .small-card p {
-  color: #8a95a5;
+  color: #a1a1aa;
   font-size: 11px;
   line-height: 1.7;
   margin: 0;
@@ -232,7 +232,7 @@ h1 span {
   margin-bottom: 12px;
 }
 .runtime-note p {
-  color: #748296;
+  color: #a1a1aa;
   font-size: 12px;
   line-height: 1.8;
 }
